@@ -4,6 +4,6 @@
 <mapper namespace="com.smartlibrary.dao.testUserDao">
 	<select id="getschool" parameterType="School" resultType="School">
 		select school_id as school_id,
-			   name as name from school where school_id=#{school_id}
+			   name as name from school
 	</select>
 </mapper>
