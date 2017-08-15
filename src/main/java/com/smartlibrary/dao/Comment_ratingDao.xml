@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.Comment_ratingDao">
+	<select id="getComment_rating" parameterType="Comment_rating" resultType="Comment_rating">
+		select comment_rating_id as comment_rating_id,
+			   commentid as commentid,
+			   account as account
+			   from comment_rating
+	</select>
+</mapper>

@@ -4,6 +4,6 @@ import java.util.List;
 
 import com.smartlibrary.domain.School;
 
-public interface testUserDao {
-	public abstract List<School> getschool(School school);
+public interface SchoolDao {
+	public abstract List<School> getSchool(School school);
 }

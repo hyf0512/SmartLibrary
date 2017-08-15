@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.UserDao">
+	<select id="getUser" parameterType="User" resultType="User">
+		select account as account,
+			   password as password,
+			   name as name,
+			   hobbyid as hobbyid,
+			   sex as sex,
+			   photourl as photourl,
+			   nickname as nickname
+			   from user
+	</select>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.Event_registrationDao">
+	<select id="getEvent_registration" parameterType="Event_registration" resultType="Event_registration">
+		select id as id,
+			   reserved_id as reserved_id,
+			   studentid as studentid
+			   from event_registration
+	</select>
+</mapper>

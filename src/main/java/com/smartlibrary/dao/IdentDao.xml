@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.IdentDao">
+	<select id="getIdent" parameterType="Ident" resultType="Ident">
+		select identid as identid,
+			   school_id as school_id,
+			   college_id as college_id,
+			   major_id as major_id,
+			   account as account,
+			   studentid as studentid,
+			   grade as grade,
+			   state as state
+			   from ident
+	</select>
+</mapper>

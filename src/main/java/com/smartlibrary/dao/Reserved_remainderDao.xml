@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.Reserved_remainderDao">
+	<select id="getReserved_remainder" parameterType="Reserved_remainder" resultType="Reserved_remainder">
+		select id as id,
+			   account as account,
+			   reserved as reserved,
+			   remainder as remainder,
+			   type as type,
+			   date as date
+			   from reserved_remainder
+	</select>
+</mapper>

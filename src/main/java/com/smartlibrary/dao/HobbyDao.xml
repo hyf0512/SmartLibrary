@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.HobbyDao">
+	<select id="getHobby" parameterType="Hobby" resultType="Hobby">
+		select hobby_id as hobby_id,
+			   name as name
+			   from hobby
+	</select>
+</mapper>

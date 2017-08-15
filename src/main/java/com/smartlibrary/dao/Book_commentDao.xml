@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.Book_commentDao">
+	<select id="getBook_comment" parameterType="Book_comment" resultType="Book_comment">
+		select commentid as commentid,
+			   college_id as college_id,
+			   account as account,
+			   bookid as bookid,
+			   date as date,
+			   time as time,
+			   rating as rating,
+			   votecount as votecount,
+			   content as content
+			   from book_comment
+	</select>
+</mapper>

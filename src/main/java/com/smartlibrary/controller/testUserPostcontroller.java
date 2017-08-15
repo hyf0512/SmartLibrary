@@ -16,7 +16,9 @@ import com.smartlibrary.service.testUserPostService;
 @Controller
 @RequestMapping({ "/version1" })
 public class testUserPostcontroller {
-	private static final Logger logger = Logger.getLogger(testUsergetcontroller.class);
+	//private static final Logger logger = Logger.getLogger(testUsergetcontroller.class);
+	private static final Logger logger = Logger.getLogger(testUserPostcontroller.class);
+
 	@Autowired
 	private testUserPostService testuserpostservice;
 	@RequestMapping(method = { RequestMethod.POST })
@@ -24,7 +26,9 @@ public class testUserPostcontroller {
 	//post方法测试
 	public List<School> getschool(@RequestBody School school) {
 		logger.info("测试开始ʼ");
+		System.out.println(school.getSchool_id() + " " + school.getName()) ;
 		logger.info("测试结束");
 		return testuserpostservice.getschool1(school);
+		//return null;
 	}
 }

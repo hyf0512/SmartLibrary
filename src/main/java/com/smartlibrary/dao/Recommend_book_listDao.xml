@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.Recommend_book_listDao">
+	<select id="getRecommend_book_list" parameterType="Recommend_book_list" resultType="Recommend_book_list">
+		select recommend_id as recommend_id,
+			   college_id as college_id,
+			   name as name,
+			   author as author,
+			   content as content,
+			   price as price,
+			   type as type,
+			   votecount as votecount
+			   from recommend_book_list
+	</select>
+</mapper>

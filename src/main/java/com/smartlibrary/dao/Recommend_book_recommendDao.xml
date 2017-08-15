@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.Recommend_book_recommendDao">
+	<select id="getRecommend_book_recommend" parameterType="Recommend_book_recommend" resultType="Recommend_book_recommend">
+		select id as id,
+			   recommend_id as recommend_id,
+			   account as account
+			   from recommend_book_recommend
+	</select>
+</mapper>

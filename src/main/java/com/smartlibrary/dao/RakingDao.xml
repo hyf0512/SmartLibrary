@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.RakingDao">
+	<select id="getRaking" parameterType="Raking" resultType="Raking">
+		select raking_id as raking_id,
+			   year as year,
+			   month as month,
+			   number as number,
+			   type as type,
+			   studentid as studentid
+			   from raking
+	</select>
+</mapper>

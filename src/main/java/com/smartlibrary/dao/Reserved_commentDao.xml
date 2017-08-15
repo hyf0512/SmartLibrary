@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.Reserved_commentDao">
+	<select id="getReserved_comment" parameterType="Reserved_comment" resultType="Reserved_comment">
+		select reserved_id as reserved_id,
+			   reserved_number as reserved_number,
+			   studentid as studentid,
+			   type as type,
+			   name as name,
+			   location as location,
+			   starttime as starttime,
+			   endtime as endtime,
+			   date as date,
+			   number as number,
+			   number_ordered as number_ordered,
+			   end_date as end_date,
+			   event_comment as event_comment
+			   from reserved_comment
+	</select>
+</mapper>
