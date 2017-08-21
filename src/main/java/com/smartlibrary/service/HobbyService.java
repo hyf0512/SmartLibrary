@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Hobby;
 @Service
 public class HobbyService {
 
-	//private static final Logger logger = Logger.getLogger(HobbyService.class);
 	@Autowired
 	private HobbyDao hobbyDao;
-	public List<Hobby> getHobby(){
-		//logger.info("测试开始");
+	public List<Hobby> getHobbyList(){
 		Hobby temp =new Hobby();
-		//logger.info("测试结束");
-		return hobbyDao.getHobby(temp);
+		return hobbyDao.getHobbyList(temp);
+	}
+	public Hobby getOneHobby(Hobby hobby){
+		return hobbyDao.getOneHobby(hobby);
+	}
+	public void addHobby(Hobby hobby){
+		hobbyDao.addHobby(hobby);
+	}
+	public void editHobby(Hobby hobby){
+		hobbyDao.editHobby(hobby);
 	}
 }

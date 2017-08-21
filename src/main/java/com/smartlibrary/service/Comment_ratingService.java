@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Comment_rating;
 @Service
 public class Comment_ratingService {
 
-	//private static final Logger logger = Logger.getLogger(Comment_ratingService.class);
 	@Autowired
 	private Comment_ratingDao comment_ratingDao;
-	public List<Comment_rating> getComment_rating(){
-		//logger.info("测试开始");
+	public List<Comment_rating> getComment_ratingList(){
 		Comment_rating temp =new Comment_rating();
-		//logger.info("测试结束");
-		return comment_ratingDao.getComment_rating(temp);
+		return comment_ratingDao.getComment_ratingList(temp);
+	}
+	public Comment_rating getOneComment_rating(Comment_rating comment_rating){
+		return comment_ratingDao.getOneComment_rating(comment_rating);
+	}
+	public void addComment_rating(Comment_rating comment_rating){
+		comment_ratingDao.addComment_rating(comment_rating);
+	}
+	public void editComment_rating(Comment_rating comment_rating){
+		comment_ratingDao.editComment_rating(comment_rating);
 	}
 }

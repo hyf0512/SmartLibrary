@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.Reserved_remainderDao">
-	<select id="getReserved_remainder" parameterType="Reserved_remainder" resultType="Reserved_remainder">
+	<!-- 查询所有  -->
+	<select id="getReserved_remainderList" parameterType="Reserved_remainder" resultType="Reserved_remainder">
 		select id as id,
 			   account as account,
 			   reserved as reserved,
@@ -11,4 +12,44 @@
 			   date as date
 			   from reserved_remainder
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneReserved_remainder" parameterType="Reserved_remainder" resultType="Reserved_remainder">
+		select id as id,
+			   account as account,
+			   reserved as reserved,
+			   remainder as remainder,
+			   type as type,
+			   date as date
+			   from reserved_remainder
+			   where id = #{id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addReserved_remainder" parameterType="Reserved_remainder">
+		insert into
+		reserved_remainder (
+				account,
+			  	reserved,
+			  	remainder,
+			  	type,
+			  	date
+			   	)
+			   	values (
+			   	#{account},
+			   	#{reserved},
+			   	#{remainder},
+			   	#{type},
+			   	#{date}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editReserved_remainder" parameterType="Reserved_remainder">
+		update
+		reserved_remainder
+		set account 	= #{account},
+			reserved 	= #{reserved},
+			remainder 	= #{remainder},
+			type 		= #{type},
+			date 		= #{date}
+		where id = #{id}
+	</update>
 </mapper>

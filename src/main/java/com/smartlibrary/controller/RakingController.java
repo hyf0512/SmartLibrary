@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Raking;
 import com.smartlibrary.service.RakingService;
 
-
 @Controller
-@RequestMapping({ "/getRakingList" })
+@RequestMapping(value="/raking")
 public class RakingController {
 
-	//private static final Logger logger = Logger.getLogger(Rakingcontroller.class);
 	@Autowired
 	private RakingService rakingService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getRakingList")
 	@ResponseBody
-	//get方法测试
-	public List<Raking> getRaking(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return rakingService.getRaking();
+	public List<Raking> getRakingList(HttpServletRequest request) {
+		return rakingService.getRakingList();
 	}
-
+	@RequestMapping(value="/getOneRaking")
+	@ResponseBody
+	public Raking getOneRaking(Raking raking) {
+		return rakingService.getOneRaking(raking);
+	}
+	@RequestMapping(value="/addRaking")
+	@ResponseBody
+	public void addRaking(Raking raking) {
+		rakingService.addRaking(raking);
+	}
+	@RequestMapping(value="/editRaking")
+	@ResponseBody
+	public void editRaking(Raking raking) {
+		rakingService.editRaking(raking);
+	}
 }

@@ -14,13 +14,19 @@ import com.smartlibrary.domain.User;
 @Service
 public class UserService {
 
-	//private static final Logger logger = Logger.getLogger(UserService.class);
 	@Autowired
 	private UserDao userDao;
-	public List<User> getUser(){
-		//logger.info("测试开始");
+	public List<User> getUserList(){
 		User temp =new User();
-		//logger.info("测试结束");
-		return userDao.getUser(temp);
+		return userDao.getUserList(temp);
+	}
+	public User getOneUser(User user){
+		return userDao.getOneUser(user);
+	}
+	public void addUser(User user){
+		userDao.addUser(user);
+	}
+	public void editUser(User user){
+		userDao.editUser(user);
 	}
 }

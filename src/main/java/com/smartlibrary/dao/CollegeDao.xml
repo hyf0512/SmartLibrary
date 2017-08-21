@@ -2,10 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.CollegeDao">
-	<select id="getCollege" parameterType="College" resultType="College">
+	<!-- 查询所有  -->
+	<select id="getCollegeList" parameterType="College" resultType="College">
 		select college_id as college_id,
 			   school_id as school_id,
 			   name as name
 			   from college
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneCollege" parameterType="College" resultType="College">
+		select college_id as college_id,
+			   school_id as school_id,
+			   name as name
+			   from college
+			   where college_id = #{college_id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addCollege" parameterType="College">
+		insert into
+		college (
+				school_id,
+			  	name
+			   	)
+			   	values (
+			   	#{school_id},
+			   	#{name}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editCollege" parameterType="College">
+		update
+		college
+		set school_id 	= #{school_id},
+			name 		= #{name}
+		where college_id = #{college_id}
+	</update>
 </mapper>

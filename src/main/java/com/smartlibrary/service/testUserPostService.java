@@ -13,7 +13,7 @@ import com.smartlibrary.domain.School;
 public class testUserPostService {
 	//private static final Logger logger = Logger.getLogger(testUserService.class);
 	private static final Logger logger = Logger.getLogger(testUserPostService.class);
-
+	/*
 	@Autowired
 	private SchoolDao testuserdao;
 	public List<School> getschool1(School school){
@@ -23,4 +23,5 @@ public class testUserPostService {
 		logger.info("测试结束");
 		return testuserdao.getSchool(school);
 	}
+	*/
 }

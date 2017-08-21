@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.IdentDao">
-	<select id="getIdent" parameterType="Ident" resultType="Ident">
+	<!-- 查询所有  -->
+	<select id="getIdentList" parameterType="Ident" resultType="Ident">
 		select identid as identid,
 			   school_id as school_id,
 			   college_id as college_id,
@@ -13,4 +14,52 @@
 			   state as state
 			   from ident
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneIdent" parameterType="Ident" resultType="Ident">
+		select identid as identid,
+			   school_id as school_id,
+			   college_id as college_id,
+			   major_id as major_id,
+			   account as account,
+			   studentid as studentid,
+			   grade as grade,
+			   state as state
+			   from ident
+			   where identid = #{identid}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addIdent" parameterType="Ident">
+		insert into
+		ident (
+				school_id,
+				college_id,
+				major_id,
+				account,
+				studentid,
+				grade,
+				state
+			   	)
+			   	values (
+			   	#{school_id},
+			   	#{college_id},
+			   	#{major_id},
+			   	#{account},
+			   	#{studentid},
+			   	#{grade},
+			   	#{state}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editIdent" parameterType="Ident">
+		update
+		ident
+		set school_id 	= #{school_id},
+			college_id 	= #{college_id},
+			major_id 	= #{major_id},
+			account 	= #{account},
+			studentid 	= #{studentid},
+			grade 		= #{grade},
+			state 		= #{state}
+		where identid = #{identid}
+	</update>
 </mapper>

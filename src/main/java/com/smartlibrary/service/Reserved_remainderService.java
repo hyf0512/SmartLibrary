@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Reserved_remainder;
 @Service
 public class Reserved_remainderService {
 
-	//private static final Logger logger = Logger.getLogger(Reserved_remainderService.class);
 	@Autowired
 	private Reserved_remainderDao reserved_remainderDao;
-	public List<Reserved_remainder> getReserved_remainder(){
-		//logger.info("测试开始");
+	public List<Reserved_remainder> getReserved_remainderList(){
 		Reserved_remainder temp =new Reserved_remainder();
-		//logger.info("测试结束");
-		return reserved_remainderDao.getReserved_remainder(temp);
+		return reserved_remainderDao.getReserved_remainderList(temp);
+	}
+	public Reserved_remainder getOneReserved_remainder(Reserved_remainder reserved_remainder){
+		return reserved_remainderDao.getOneReserved_remainder(reserved_remainder);
+	}
+	public void addReserved_remainder(Reserved_remainder reserved_remainder){
+		reserved_remainderDao.addReserved_remainder(reserved_remainder);
+	}
+	public void editReserved_remainder(Reserved_remainder reserved_remainder){
+		reserved_remainderDao.editReserved_remainder(reserved_remainder);
 	}
 }

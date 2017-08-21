@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Reserved_comment;
 import com.smartlibrary.service.Reserved_commentService;
 
-
 @Controller
-@RequestMapping({ "/getReserved_commentList" })
+@RequestMapping(value="/reserved_comment")
 public class Reserved_commentController {
 
-	//private static final Logger logger = Logger.getLogger(Reserved_commentcontroller.class);
 	@Autowired
 	private Reserved_commentService reserved_commentService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getReserved_commentList")
 	@ResponseBody
-	//get方法测试
-	public List<Reserved_comment> getReserved_comment(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return reserved_commentService.getReserved_comment();
+	public List<Reserved_comment> getReserved_commentList(HttpServletRequest request) {
+		return reserved_commentService.getReserved_commentList();
 	}
-
+	@RequestMapping(value="/getOneReserved_comment")
+	@ResponseBody
+	public Reserved_comment getOneReserved_comment(Reserved_comment reserved_comment) {
+		return reserved_commentService.getOneReserved_comment(reserved_comment);
+	}
+	@RequestMapping(value="/addReserved_comment")
+	@ResponseBody
+	public void addReserved_comment(Reserved_comment reserved_comment) {
+		reserved_commentService.addReserved_comment(reserved_comment);
+	}
+	@RequestMapping(value="/editReserved_comment")
+	@ResponseBody
+	public void editReserved_comment(Reserved_comment reserved_comment) {
+		reserved_commentService.editReserved_comment(reserved_comment);
+	}
 }

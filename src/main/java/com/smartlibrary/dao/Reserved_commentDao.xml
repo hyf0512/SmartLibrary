@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.Reserved_commentDao">
-	<select id="getReserved_comment" parameterType="Reserved_comment" resultType="Reserved_comment">
+	<!-- 查询所有  -->
+	<select id="getReserved_commentList" parameterType="Reserved_comment" resultType="Reserved_comment">
 		select reserved_id as reserved_id,
 			   reserved_number as reserved_number,
 			   studentid as studentid,
@@ -18,4 +19,72 @@
 			   event_comment as event_comment
 			   from reserved_comment
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneReserved_comment" parameterType="Reserved_comment" resultType="Reserved_comment">
+		select reserved_id as reserved_id,
+			   reserved_number as reserved_number,
+			   studentid as studentid,
+			   type as type,
+			   name as name,
+			   location as location,
+			   starttime as starttime,
+			   endtime as endtime,
+			   date as date,
+			   number as number,
+			   number_ordered as number_ordered,
+			   end_date as end_date,
+			   event_comment as event_comment
+			   from reserved_comment
+			   where reserved_id = #{reserved_id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addReserved_comment" parameterType="Reserved_comment">
+		insert into
+		reserved_comment (
+				reserved_number,
+				studentid,
+				type,
+				name,
+				location,
+				starttime,
+				endtime,
+				date,
+				number,
+				number_ordered,
+				end_date,
+				event_comment
+			   	)
+			   	values (
+			   	#{reserved_number},
+			   	#{studentid},
+			   	#{type},
+			   	#{name},
+			   	#{location},
+			   	#{starttime},
+			   	#{endtime},
+			   	#{date},
+			   	#{number},
+			   	#{number_ordered},
+			   	#{end_date},
+			   	#{event_comment}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editReserved_comment" parameterType="Reserved_comment">
+		update
+		reserved_comment
+		set reserved_number = #{reserved_number},
+			studentid 		= #{studentid},
+			type 			= #{type},
+			name 			= #{name},
+			location 		= #{location},
+			starttime 		= #{starttime},
+			endtime 		= #{endtime},
+			date 			= #{date},
+			number 			= #{number},
+			number_ordered 	= #{number_ordered},
+			end_date 		= #{end_date},
+			event_comment 	= #{event_comment}
+		where reserved_id = #{reserved_id}
+	</update>
 </mapper>

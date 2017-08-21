@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Ident;
 @Service
 public class IdentService {
 
-	//private static final Logger logger = Logger.getLogger(IdentService.class);
 	@Autowired
 	private IdentDao identDao;
-	public List<Ident> getIdent(){
-		//logger.info("测试开始");
+	public List<Ident> getIdentList(){
 		Ident temp =new Ident();
-		//logger.info("测试结束");
-		return identDao.getIdent(temp);
+		return identDao.getIdentList(temp);
+	}
+	public Ident getOneIdent(Ident ident){
+		return identDao.getOneIdent(ident);
+	}
+	public void addIdent(Ident ident){
+		identDao.addIdent(ident);
+	}
+	public void editIdent(Ident ident){
+		identDao.editIdent(ident);
 	}
 }

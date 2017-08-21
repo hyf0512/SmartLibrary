@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.RakingDao">
-	<select id="getRaking" parameterType="Raking" resultType="Raking">
+	<!-- 查询所有  -->
+	<select id="getRakingList" parameterType="Raking" resultType="Raking">
 		select raking_id as raking_id,
 			   year as year,
 			   month as month,
@@ -11,4 +12,44 @@
 			   studentid as studentid
 			   from raking
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneRaking" parameterType="Raking" resultType="Raking">
+		select raking_id as raking_id,
+			   year as year,
+			   month as month,
+			   number as number,
+			   type as type,
+			   studentid as studentid
+			   from raking
+			   where raking_id = #{raking_id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addRaking" parameterType="Raking">
+		insert into
+		raking (
+				year,
+			  	month,
+			  	number,
+			  	type,
+			  	studentid
+			   	)
+			   	values (
+			   	#{year},
+			   	#{month},
+			   	#{number},
+			   	#{type},
+			   	#{studentid}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editRaking" parameterType="Raking">
+		update
+		raking
+		set year 		= #{year},
+			month 		= #{month},
+			number 		= #{number},
+			type 		= #{type},
+			studentid 	= #{studentid}
+		where raking_id = #{raking_id}
+	</update>
 </mapper>

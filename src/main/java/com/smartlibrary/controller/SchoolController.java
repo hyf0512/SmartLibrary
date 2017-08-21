@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.School;
 import com.smartlibrary.service.SchoolService;
 
-
 @Controller
-@RequestMapping({ "/getSchoolList" })
+@RequestMapping(value="/school")
 public class SchoolController {
 
-	//private static final Logger logger = Logger.getLogger(SchoolController.class);
 	@Autowired
 	private SchoolService schoolService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getSchoolList")
 	@ResponseBody
-	//get方法测试
-	public List<School> getschool(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return schoolService.getSchool();
+	public List<School> getschoolList(HttpServletRequest request) {
+		return schoolService.getSchoolList();
 	}
-
+	@RequestMapping(value="/getOneSchool")
+	@ResponseBody
+	public School getOneSchool(School school) {
+		return schoolService.getOneSchool(school);
+	}
+	@RequestMapping(value="/addSchool")
+	@ResponseBody
+	public void addSchool(School school) {
+		schoolService.addSchool(school);
+	}
+	@RequestMapping(value="/editSchool")
+	@ResponseBody
+	public void editSchool(School school) {
+		schoolService.editSchool(school);
+	}
 }

@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Ident;
 import com.smartlibrary.service.IdentService;
 
-
 @Controller
-@RequestMapping({ "/getIdentList" })
+@RequestMapping(value="/ident")
 public class IdentController {
 
-	//private static final Logger logger = Logger.getLogger(Identcontroller.class);
 	@Autowired
 	private IdentService identService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getIdentList")
 	@ResponseBody
-	//get方法测试
-	public List<Ident> getIdent(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return identService.getIdent();
+	public List<Ident> getIdentList(HttpServletRequest request) {
+		return identService.getIdentList();
 	}
-
+	@RequestMapping(value="/getOneIdent")
+	@ResponseBody
+	public Ident getOneIdent(Ident ident) {
+		return identService.getOneIdent(ident);
+	}
+	@RequestMapping(value="/addIdent")
+	@ResponseBody
+	public void addIdent(Ident ident) {
+		identService.addIdent(ident);
+	}
+	@RequestMapping(value="/editIdent")
+	@ResponseBody
+	public void editIdent(Ident ident) {
+		identService.editIdent(ident);
+	}
 }

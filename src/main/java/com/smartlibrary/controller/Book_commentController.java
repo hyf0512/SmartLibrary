@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Book_comment;
 import com.smartlibrary.service.Book_commentService;
 
-
 @Controller
-@RequestMapping({ "/getBook_commentList" })
+@RequestMapping(value="/book_comment")
 public class Book_commentController {
 
-	//private static final Logger logger = Logger.getLogger(Book_commentcontroller.class);
 	@Autowired
 	private Book_commentService book_commentService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getBook_commentList")
 	@ResponseBody
-	//get方法测试
-	public List<Book_comment> getBook_comment(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return book_commentService.getBook_comment();
+	public List<Book_comment> getBook_commentList(HttpServletRequest request) {
+		return book_commentService.getBook_commentList();
 	}
-
+	@RequestMapping(value="/getOneBook_comment")
+	@ResponseBody
+	public Book_comment getOneBook_comment(Book_comment book_comment) {
+		return book_commentService.getOneBook_comment(book_comment);
+	}
+	@RequestMapping(value="/addBook_comment")
+	@ResponseBody
+	public void addBook_comment(Book_comment book_comment) {
+		book_commentService.addBook_comment(book_comment);
+	}
+	@RequestMapping(value="/editBook_comment")
+	@ResponseBody
+	public void editBook_comment(Book_comment book_comment) {
+		book_commentService.editBook_comment(book_comment);
+	}
 }

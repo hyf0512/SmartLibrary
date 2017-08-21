@@ -14,13 +14,19 @@ import com.smartlibrary.domain.College;
 @Service
 public class CollegeService {
 
-	//private static final Logger logger = Logger.getLogger(CollegeService.class);
 	@Autowired
 	private CollegeDao collegeDao;
-	public List<College> getCollege(){
-		//logger.info("测试开始");
+	public List<College> getCollegeList(){
 		College temp =new College();
-		//logger.info("测试结束");
-		return collegeDao.getCollege(temp);
+		return collegeDao.getCollegeList(temp);
+	}
+	public College getOneCollege(College college){
+		return collegeDao.getOneCollege(college);
+	}
+	public void addCollege(College college){
+		collegeDao.addCollege(college);
+	}
+	public void editCollege(College college){
+		collegeDao.editCollege(college);
 	}
 }

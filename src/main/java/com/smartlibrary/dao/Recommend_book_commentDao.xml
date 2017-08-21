@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.Recommend_book_commentDao">
-	<select id="getRecommend_book_comment" parameterType="Recommend_book_comment" resultType="Recommend_book_comment">
+	<!-- 查询所有  -->
+	<select id="getRecommend_book_commentList" parameterType="Recommend_book_comment" resultType="Recommend_book_comment">
 		select id as id,
 			   account as account,
 			   recommend_id as recommend_id,
@@ -12,4 +13,48 @@
 			   votecount as votecount
 			   from recommend_book_comment
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneRecommend_book_comment" parameterType="Recommend_book_comment" resultType="Recommend_book_comment">
+		select id as id,
+			   account as account,
+			   recommend_id as recommend_id,
+			   date as date,
+			   time as time,
+			   content as content,
+			   votecount as votecount
+			   from recommend_book_comment
+			   where id = #{id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addRecommend_book_comment" parameterType="Recommend_book_comment">
+		insert into
+		recommend_book_comment (
+				account,
+			  	recommend_id,
+			  	date,
+			  	time,
+			  	content,
+			  	votecount
+			   	)
+			   	values (
+			   	#{account},
+			   	#{recommend_id},
+			   	#{date},
+			   	#{time},
+			   	#{content},
+			   	#{votecount}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editRecommend_book_comment" parameterType="Recommend_book_comment">
+		update
+		recommend_book_comment
+		set account 		= #{account},
+			recommend_id 	= #{recommend_id},
+			date 			= #{date},
+			time 			= #{time},
+			content 		= #{content},
+			votecount 		= #{votecount}
+		where id = #{id}
+	</update>
 </mapper>

@@ -2,10 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.Event_registrationDao">
-	<select id="getEvent_registration" parameterType="Event_registration" resultType="Event_registration">
+	<!-- 查询所有  -->
+	<select id="getEvent_registrationList" parameterType="Event_registration" resultType="Event_registration">
 		select id as id,
 			   reserved_id as reserved_id,
 			   studentid as studentid
 			   from event_registration
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneEvent_registration" parameterType="Event_registration" resultType="Event_registration">
+		select id as id,
+			   reserved_id as reserved_id,
+			   studentid as studentid
+			   from event_registration
+			   where id = #{id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addEvent_registration" parameterType="Event_registration">
+		insert into
+		event_registration (
+				reserved_id,
+			  	studentid
+			   	)
+			   	values (
+			   	#{reserved_id},
+			   	#{studentid}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editEvent_registration" parameterType="Event_registration">
+		update
+		event_registration
+		set reserved_id = #{reserved_id},
+			studentid 	= #{studentid}
+		where id = #{id}
+	</update>
 </mapper>

@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Major;
 import com.smartlibrary.service.MajorService;
 
-
 @Controller
-@RequestMapping({ "/getMajorList" })
+@RequestMapping(value="/major")
 public class MajorController {
 
-	//private static final Logger logger = Logger.getLogger(Majorcontroller.class);
 	@Autowired
 	private MajorService majorService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getMajorList")
 	@ResponseBody
-	//get方法测试
-	public List<Major> getMajor(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return majorService.getMajor();
+	public List<Major> getMajorList(HttpServletRequest request) {
+		return majorService.getMajorList();
 	}
-
+	@RequestMapping(value="/getOneMajor")
+	@ResponseBody
+	public Major getOneMajor(Major major) {
+		return majorService.getOneMajor(major);
+	}
+	@RequestMapping(value="/addMajor")
+	@ResponseBody
+	public void addMajor(Major major) {
+		majorService.addMajor(major);
+	}
+	@RequestMapping(value="/editMajor")
+	@ResponseBody
+	public void editMajor(Major major) {
+		majorService.editMajor(major);
+	}
 }

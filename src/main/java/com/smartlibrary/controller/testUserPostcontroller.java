@@ -18,9 +18,10 @@ import com.smartlibrary.service.testUserPostService;
 public class testUserPostcontroller {
 	//private static final Logger logger = Logger.getLogger(testUsergetcontroller.class);
 	private static final Logger logger = Logger.getLogger(testUserPostcontroller.class);
-
+	/*
 	@Autowired
 	private testUserPostService testuserpostservice;
+	//@RequestMapping(method = { RequestMethod.GET })
 	@RequestMapping(method = { RequestMethod.POST })
 	@ResponseBody
 	//post方法测试
@@ -31,4 +32,5 @@ public class testUserPostcontroller {
 		return testuserpostservice.getschool1(school);
 		//return null;
 	}
+	*/
 }

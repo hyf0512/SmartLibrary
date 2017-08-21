@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.UserDao">
-	<select id="getUser" parameterType="User" resultType="User">
+	<!-- 查询所有  -->
+	<select id="getUserList" parameterType="User" resultType="User">
 		select account as account,
 			   password as password,
 			   name as name,
@@ -12,4 +13,50 @@
 			   nickname as nickname
 			   from user
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneUser" parameterType="User" resultType="User">
+		select account as account,
+			   password as password,
+			   name as name,
+			   hobbyid as hobbyid,
+			   sex as sex,
+			   photourl as photourl,
+			   nickname as nickname
+			   from user
+			   where account = #{account}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addUser" parameterType="User">
+		insert into
+		user (
+				account,
+				password,
+				name,
+				hobbyid,
+				sex,
+				photourl,
+			  	nickname
+			   	)
+			   	values (
+			   	#{account},
+			   	#{password},
+			   	#{name},
+			   	#{hobbyid},
+			   	#{sex},
+			   	#{photourl},
+			   	#{nickname}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editUser" parameterType="User">
+		update
+		user
+		set password 	= #{password},
+			name 		= #{name},
+			hobbyid 	= #{hobbyid},
+			sex 		= #{sex},
+			photourl 	= #{photourl},
+			nickname 	= #{nickname}
+		where account = #{account}
+	</update>
 </mapper>

@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Recommend_book_commend_vote;
 @Service
 public class Recommend_book_commend_voteService {
 
-	//private static final Logger logger = Logger.getLogger(Recommend_book_commend_voteService.class);
 	@Autowired
 	private Recommend_book_commend_voteDao recommend_book_commend_voteDao;
-	public List<Recommend_book_commend_vote> getRecommend_book_commend_vote(){
-		//logger.info("测试开始");
+	public List<Recommend_book_commend_vote> getRecommend_book_commend_voteList(){
 		Recommend_book_commend_vote temp =new Recommend_book_commend_vote();
-		//logger.info("测试结束");
-		return recommend_book_commend_voteDao.getRecommend_book_commend_vote(temp);
+		return recommend_book_commend_voteDao.getRecommend_book_commend_voteList(temp);
+	}
+	public Recommend_book_commend_vote getOneRecommend_book_commend_vote(Recommend_book_commend_vote recommend_book_commend_vote){
+		return recommend_book_commend_voteDao.getOneRecommend_book_commend_vote(recommend_book_commend_vote);
+	}
+	public void addRecommend_book_commend_vote(Recommend_book_commend_vote recommend_book_commend_vote){
+		recommend_book_commend_voteDao.addRecommend_book_commend_vote(recommend_book_commend_vote);
+	}
+	public void editRecommend_book_commend_vote(Recommend_book_commend_vote recommend_book_commend_vote){
+		recommend_book_commend_voteDao.editRecommend_book_commend_vote(recommend_book_commend_vote);
 	}
 }

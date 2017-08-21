@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.College;
 import com.smartlibrary.service.CollegeService;
 
-
 @Controller
-@RequestMapping({ "/getCollegeList" })
+@RequestMapping(value="/college")
 public class CollegeController {
 
-	//private static final Logger logger = Logger.getLogger(Collegecontroller.class);
 	@Autowired
 	private CollegeService collegeService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getCollegeList")
 	@ResponseBody
-	//get方法测试
-	public List<College> getCollege(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return collegeService.getCollege();
+	public List<College> getCollegeList(HttpServletRequest request) {
+		return collegeService.getCollegeList();
 	}
-
+	@RequestMapping(value="/getOneCollege")
+	@ResponseBody
+	public College getOneCollege(College college) {
+		return collegeService.getOneCollege(college);
+	}
+	@RequestMapping(value="/addCollege")
+	@ResponseBody
+	public void addCollege(College college) {
+		collegeService.addCollege(college);
+	}
+	@RequestMapping(value="/editCollege")
+	@ResponseBody
+	public void editCollege(College college) {
+		collegeService.editCollege(college);
+	}
 }

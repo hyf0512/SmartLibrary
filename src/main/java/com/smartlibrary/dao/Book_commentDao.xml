@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.Book_commentDao">
-	<select id="getBook_comment" parameterType="Book_comment" resultType="Book_comment">
+	<!-- 查询所有  -->
+	<select id="getBook_commentList" parameterType="Book_comment" resultType="Book_comment">
 		select commentid as commentid,
 			   college_id as college_id,
 			   account as account,
@@ -14,4 +15,56 @@
 			   content as content
 			   from book_comment
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneBook_comment" parameterType="Book_comment" resultType="Book_comment">
+		select commentid as commentid,
+			   college_id as college_id,
+			   account as account,
+			   bookid as bookid,
+			   date as date,
+			   time as time,
+			   rating as rating,
+			   votecount as votecount,
+			   content as content
+			   from book_comment
+			   where commentid = #{commentid}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addBook_comment" parameterType="Book_comment">
+		insert into
+		book_comment (
+				college_id,
+			  	account,
+			   	bookid,
+			   	date,
+			   	time,
+			   	rating,
+			   	votecount,
+			   	content
+			   	)
+			   	values (
+			   	#{college_id},
+			   	#{account},
+			   	#{bookid},
+			   	#{date},
+			   	#{time},
+			   	#{rating},
+			   	#{votecount},
+			   	#{content}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editBook_comment" parameterType="Book_comment">
+		update
+		book_comment
+		set college_id 	= #{college_id},
+			account 	= #{account},
+			bookid 		= #{bookid},
+			date 		= #{date},
+			time 		= #{time},
+			rating		= #{rating},
+			votecount 	= #{votecount},
+			content 	= #{content}
+		where commentid = #{commentid}
+	</update>
 </mapper>

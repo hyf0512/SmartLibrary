@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Arrears;
 import com.smartlibrary.service.ArrearsService;
 
-
 @Controller
-@RequestMapping({ "/getArrearsList" })
+@RequestMapping(value="/arrears")
 public class ArrearsController {
 
-	//private static final Logger logger = Logger.getLogger(Arrearscontroller.class);
 	@Autowired
 	private ArrearsService arrearsService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getArrearsList")
 	@ResponseBody
-	//get方法测试
-	public List<Arrears> getArrears(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return arrearsService.getArrears();
+	public List<Arrears> getArrearsList(HttpServletRequest request) {
+		return arrearsService.getArrearsList();
 	}
-
+	@RequestMapping(value="/getOneArrears")
+	@ResponseBody
+	public Arrears getOneArrears(Arrears arrears) {
+		return arrearsService.getOneArrears(arrears);
+	}
+	@RequestMapping(value="/addArrears")
+	@ResponseBody
+	public void addArrears(Arrears arrears) {
+		arrearsService.addArrears(arrears);
+	}
+	@RequestMapping(value="/editArrears")
+	@ResponseBody
+	public void editArrears(Arrears arrears) {
+		arrearsService.editArrears(arrears);
+	}
 }

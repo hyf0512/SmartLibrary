@@ -2,10 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.Comment_ratingDao">
-	<select id="getComment_rating" parameterType="Comment_rating" resultType="Comment_rating">
+	<!-- 查询所有  -->
+	<select id="getComment_ratingList" parameterType="Comment_rating" resultType="Comment_rating">
 		select comment_rating_id as comment_rating_id,
 			   commentid as commentid,
 			   account as account
 			   from comment_rating
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneComment_rating" parameterType="Comment_rating" resultType="Comment_rating">
+		select comment_rating_id as comment_rating_id,
+			   commentid as commentid,
+			   account as account
+			   from comment_rating
+			   where comment_rating_id = #{comment_rating_id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addComment_rating" parameterType="Comment_rating">
+		insert into
+		comment_rating (
+				commentid,
+			  	account
+			   	)
+			   	values (
+			   	#{commentid},
+			   	#{account}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editComment_rating" parameterType="Comment_rating">
+		update
+		comment_rating
+		set commentid 	= #{commentid},
+			account 	= #{account}
+		where comment_rating_id = #{comment_rating_id}
+	</update>
 </mapper>

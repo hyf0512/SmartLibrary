@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Major;
 @Service
 public class MajorService {
 
-	//private static final Logger logger = Logger.getLogger(MajorService.class);
 	@Autowired
 	private MajorDao majorDao;
-	public List<Major> getMajor(){
-		//logger.info("测试开始");
+	public List<Major> getMajorList(){
 		Major temp =new Major();
-		//logger.info("测试结束");
-		return majorDao.getMajor(temp);
+		return majorDao.getMajorList(temp);
+	}
+	public Major getOneMajor(Major major){
+		return majorDao.getOneMajor(major);
+	}
+	public void addMajor(Major major){
+		majorDao.addMajor(major);
+	}
+	public void editMajor(Major major){
+		majorDao.editMajor(major);
 	}
 }

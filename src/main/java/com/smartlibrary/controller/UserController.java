@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.User;
 import com.smartlibrary.service.UserService;
 
-
 @Controller
-@RequestMapping({ "/getUserList" })
+@RequestMapping(value="/user")
 public class UserController {
 
-	//private static final Logger logger = Logger.getLogger(Usercontroller.class);
 	@Autowired
 	private UserService userService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getUserList")
 	@ResponseBody
-	//get方法测试
-	public List<User> getUser(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return userService.getUser();
+	public List<User> getUserList(HttpServletRequest request) {
+		return userService.getUserList();
 	}
-
+	@RequestMapping(value="/getOneUser")
+	@ResponseBody
+	public User getOneUser(User user) {
+		return userService.getOneUser(user);
+	}
+	@RequestMapping(value="/addUser")
+	@ResponseBody
+	public void addUser(User user) {
+		userService.addUser(user);
+	}
+	@RequestMapping(value="/editUser")
+	@ResponseBody
+	public void editUser(User user) {
+		userService.editUser(user);
+	}
 }

@@ -14,13 +14,19 @@ import com.smartlibrary.domain.School;
 @Service
 public class SchoolService {
 
-	//private static final Logger logger = Logger.getLogger(SchoolService.class);
 	@Autowired
 	private SchoolDao schoolDao;
-	public List<School> getSchool(){
-		//logger.info("测试开始");
+	public List<School> getSchoolList(){
 		School temp =new School();
-		//logger.info("测试结束");
-		return schoolDao.getSchool(temp);
+		return schoolDao.getSchoolList(temp);
+	}
+	public School getOneSchool(School school){
+		return schoolDao.getOneSchool(school);
+	}
+	public void addSchool(School school){
+		schoolDao.addSchool(school);
+	}
+	public void editSchool(School school){
+		schoolDao.editSchool(school);
 	}
 }

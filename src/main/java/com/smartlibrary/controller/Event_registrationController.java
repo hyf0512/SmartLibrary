@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Event_registration;
 import com.smartlibrary.service.Event_registrationService;
 
-
 @Controller
-@RequestMapping({ "/getEvent_registrationList" })
+@RequestMapping(value="/event_registration")
 public class Event_registrationController {
 
-	//private static final Logger logger = Logger.getLogger(Event_registrationcontroller.class);
 	@Autowired
 	private Event_registrationService event_registrationService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getEvent_registrationList")
 	@ResponseBody
-	//get方法测试
-	public List<Event_registration> getEvent_registration(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return event_registrationService.getEvent_registration();
+	public List<Event_registration> getEvent_registrationList(HttpServletRequest request) {
+		return event_registrationService.getEvent_registrationList();
 	}
-
+	@RequestMapping(value="/getOneEvent_registration")
+	@ResponseBody
+	public Event_registration getOneEvent_registration(Event_registration event_registration) {
+		return event_registrationService.getOneEvent_registration(event_registration);
+	}
+	@RequestMapping(value="/addEvent_registration")
+	@ResponseBody
+	public void addEvent_registration(Event_registration event_registration) {
+		event_registrationService.addEvent_registration(event_registration);
+	}
+	@RequestMapping(value="/editEvent_registration")
+	@ResponseBody
+	public void editEvent_registration(Event_registration event_registration) {
+		event_registrationService.editEvent_registration(event_registration);
+	}
 }

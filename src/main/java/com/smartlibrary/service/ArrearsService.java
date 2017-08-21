@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Arrears;
 @Service
 public class ArrearsService {
 
-	//private static final Logger logger = Logger.getLogger(ArrearsService.class);
 	@Autowired
 	private ArrearsDao arrearsDao;
-	public List<Arrears> getArrears(){
-		//logger.info("测试开始");
+	public List<Arrears> getArrearsList(){
 		Arrears temp =new Arrears();
-		//logger.info("测试结束");
-		return arrearsDao.getArrears(temp);
+		return arrearsDao.getArrearsList(temp);
+	}
+	public Arrears getOneArrears(Arrears arrears){
+		return arrearsDao.getOneArrears(arrears);
+	}
+	public void addArrears(Arrears arrears){
+		arrearsDao.addArrears(arrears);
+	}
+	public void editArrears(Arrears arrears){
+		arrearsDao.editArrears(arrears);
 	}
 }

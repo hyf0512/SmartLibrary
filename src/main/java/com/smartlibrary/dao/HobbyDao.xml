@@ -2,9 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.HobbyDao">
-	<select id="getHobby" parameterType="Hobby" resultType="Hobby">
-		select hobby_id as hobby_id,
+	<!-- 查询所有  -->
+	<select id="getHobbyList" parameterType="Hobby" resultType="Hobby">
+		select hobbyid as hobbyid,
 			   name as name
 			   from hobby
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneHobby" parameterType="Hobby" resultType="Hobby">
+		select hobbyid as hobbyid,
+			   name as name
+			   from hobby
+			   where hobbyid = #{hobbyid}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addHobby" parameterType="Hobby">
+		insert into
+		hobby (
+				name
+			   	)
+			   	values (
+			   	#{name}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editHobby" parameterType="Hobby">
+		update
+		hobby
+		set name 		= #{name}
+		where hobbyid = #{hobbyid}
+	</update>
 </mapper>

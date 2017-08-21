@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Reserved_remainder;
 import com.smartlibrary.service.Reserved_remainderService;
 
-
 @Controller
-@RequestMapping({ "/getReserved_remainderList" })
+@RequestMapping(value="/reserved_remainder")
 public class Reserved_remainderController {
 
-	//private static final Logger logger = Logger.getLogger(Reserved_remaindercontroller.class);
 	@Autowired
 	private Reserved_remainderService reserved_remainderService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getReserved_remainderList")
 	@ResponseBody
-	//get方法测试
-	public List<Reserved_remainder> getReserved_remainder(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return reserved_remainderService.getReserved_remainder();
+	public List<Reserved_remainder> getReserved_remainderList(HttpServletRequest request) {
+		return reserved_remainderService.getReserved_remainderList();
 	}
-
+	@RequestMapping(value="/getOneReserved_remainder")
+	@ResponseBody
+	public Reserved_remainder getOneReserved_remainder(Reserved_remainder reserved_remainder) {
+		return reserved_remainderService.getOneReserved_remainder(reserved_remainder);
+	}
+	@RequestMapping(value="/addReserved_remainder")
+	@ResponseBody
+	public void addReserved_remainder(Reserved_remainder reserved_remainder) {
+		reserved_remainderService.addReserved_remainder(reserved_remainder);
+	}
+	@RequestMapping(value="/editReserved_remainder")
+	@ResponseBody
+	public void editReserved_remainder(Reserved_remainder reserved_remainder) {
+		reserved_remainderService.editReserved_remainder(reserved_remainder);
+	}
 }

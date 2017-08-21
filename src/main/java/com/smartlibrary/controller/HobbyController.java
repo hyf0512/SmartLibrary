@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Hobby;
 import com.smartlibrary.service.HobbyService;
 
-
 @Controller
-@RequestMapping({ "/getHobbyList" })
+@RequestMapping(value="/hobby")
 public class HobbyController {
 
-	//private static final Logger logger = Logger.getLogger(Hobbycontroller.class);
 	@Autowired
 	private HobbyService hobbyService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getHobbyList")
 	@ResponseBody
-	//get方法测试
-	public List<Hobby> getHobby(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return hobbyService.getHobby();
+	public List<Hobby> getHobbyList(HttpServletRequest request) {
+		return hobbyService.getHobbyList();
 	}
-
+	@RequestMapping(value="/getOneHobby")
+	@ResponseBody
+	public Hobby getOneHobby(Hobby hobby) {
+		return hobbyService.getOneHobby(hobby);
+	}
+	@RequestMapping(value="/addHobby")
+	@ResponseBody
+	public void addHobby(Hobby hobby) {
+		hobbyService.addHobby(hobby);
+	}
+	@RequestMapping(value="/editHobby")
+	@ResponseBody
+	public void editHobby(Hobby hobby) {
+		hobbyService.editHobby(hobby);
+	}
 }

@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Comment_rating;
 import com.smartlibrary.service.Comment_ratingService;
 
-
 @Controller
-@RequestMapping({ "/getComment_ratingList" })
+@RequestMapping(value="/comment_rating")
 public class Comment_ratingController {
 
-	//private static final Logger logger = Logger.getLogger(Comment_ratingcontroller.class);
 	@Autowired
 	private Comment_ratingService comment_ratingService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getComment_ratingList")
 	@ResponseBody
-	//get方法测试
-	public List<Comment_rating> getComment_rating(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return comment_ratingService.getComment_rating();
+	public List<Comment_rating> getComment_ratingList(HttpServletRequest request) {
+		return comment_ratingService.getComment_ratingList();
 	}
-
+	@RequestMapping(value="/getOneComment_rating")
+	@ResponseBody
+	public Comment_rating getOneComment_rating(Comment_rating comment_rating) {
+		return comment_ratingService.getOneComment_rating(comment_rating);
+	}
+	@RequestMapping(value="/addComment_rating")
+	@ResponseBody
+	public void addComment_rating(Comment_rating comment_rating) {
+		comment_ratingService.addComment_rating(comment_rating);
+	}
+	@RequestMapping(value="/editComment_rating")
+	@ResponseBody
+	public void editComment_rating(Comment_rating comment_rating) {
+		comment_ratingService.editComment_rating(comment_rating);
+	}
 }

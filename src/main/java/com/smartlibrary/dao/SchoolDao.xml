@@ -2,9 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.SchoolDao">
-	<select id="getSchool" parameterType="School" resultType="School">
+	<!-- 查询所有  -->
+	<select id="getSchoolList" parameterType="School" resultType="School">
 		select school_id as school_id,
 			   name as name
 			   from school
 	</select>
+	<!-- 查询单个  -->
+	<select id="getOneSchool" parameterType="School" resultType="School">
+		select school_id as school_id,
+			   name as name
+			   from school
+			   where school_id = #{school_id}
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addSchool" parameterType="School">
+		insert into
+		school (
+				name
+			   	)
+			   	values (
+			   	#{name}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editSchool" parameterType="School">
+		update
+		school
+		set name 		= #{name}
+		where school_id = #{school_id}
+	</update>
 </mapper>

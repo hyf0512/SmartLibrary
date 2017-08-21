@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.smartlibrary.domain.Recommend_book_list;
 import com.smartlibrary.service.Recommend_book_listService;
 
-
 @Controller
-@RequestMapping({ "/getRecommend_book_listList" })
+@RequestMapping(value="/recommend_book_list")
 public class Recommend_book_listController {
 
-	//private static final Logger logger = Logger.getLogger(Recommend_book_listcontroller.class);
 	@Autowired
 	private Recommend_book_listService recommend_book_listService;
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping(value="/getRecommend_book_listList")
 	@ResponseBody
-	//get方法测试
-	public List<Recommend_book_list> getRecommend_book_list(HttpServletRequest request) {
-		//logger.info("测试开始");
-		//System.out.println(request.getQueryString());
-		//logger.info("测试结束");
-		return recommend_book_listService.getRecommend_book_list();
+	public List<Recommend_book_list> getRecommend_book_listList(HttpServletRequest request) {
+		return recommend_book_listService.getRecommend_book_listList();
 	}
-
+	@RequestMapping(value="/getOneRecommend_book_list")
+	@ResponseBody
+	public Recommend_book_list getOneRecommend_book_list(Recommend_book_list recommend_book_list) {
+		return recommend_book_listService.getOneRecommend_book_list(recommend_book_list);
+	}
+	@RequestMapping(value="/addRecommend_book_list")
+	@ResponseBody
+	public void addRecommend_book_list(Recommend_book_list recommend_book_list) {
+		recommend_book_listService.addRecommend_book_list(recommend_book_list);
+	}
+	@RequestMapping(value="/editRecommend_book_list")
+	@ResponseBody
+	public void editRecommend_book_list(Recommend_book_list recommend_book_list) {
+		recommend_book_listService.editRecommend_book_list(recommend_book_list);
+	}
 }

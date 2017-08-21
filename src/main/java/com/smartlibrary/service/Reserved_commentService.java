@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Reserved_comment;
 @Service
 public class Reserved_commentService {
 
-	//private static final Logger logger = Logger.getLogger(Reserved_commentService.class);
 	@Autowired
 	private Reserved_commentDao reserved_commentDao;
-	public List<Reserved_comment> getReserved_comment(){
-		//logger.info("测试开始");
+	public List<Reserved_comment> getReserved_commentList(){
 		Reserved_comment temp =new Reserved_comment();
-		//logger.info("测试结束");
-		return reserved_commentDao.getReserved_comment(temp);
+		return reserved_commentDao.getReserved_commentList(temp);
+	}
+	public Reserved_comment getOneReserved_comment(Reserved_comment reserved_comment){
+		return reserved_commentDao.getOneReserved_comment(reserved_comment);
+	}
+	public void addReserved_comment(Reserved_comment reserved_comment){
+		reserved_commentDao.addReserved_comment(reserved_comment);
+	}
+	public void editReserved_comment(Reserved_comment reserved_comment){
+		reserved_commentDao.editReserved_comment(reserved_comment);
 	}
 }

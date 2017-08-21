@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Raking;
 @Service
 public class RakingService {
 
-	//private static final Logger logger = Logger.getLogger(RakingService.class);
 	@Autowired
 	private RakingDao rakingDao;
-	public List<Raking> getRaking(){
-		//logger.info("测试开始");
+	public List<Raking> getRakingList(){
 		Raking temp =new Raking();
-		//logger.info("测试结束");
-		return rakingDao.getRaking(temp);
+		return rakingDao.getRakingList(temp);
+	}
+	public Raking getOneRaking(Raking raking){
+		return rakingDao.getOneRaking(raking);
+	}
+	public void addRaking(Raking raking){
+		rakingDao.addRaking(raking);
+	}
+	public void editRaking(Raking raking){
+		rakingDao.editRaking(raking);
 	}
 }

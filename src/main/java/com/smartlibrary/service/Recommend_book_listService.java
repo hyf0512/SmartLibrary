@@ -14,13 +14,19 @@ import com.smartlibrary.domain.Recommend_book_list;
 @Service
 public class Recommend_book_listService {
 
-	//private static final Logger logger = Logger.getLogger(Recommend_book_listService.class);
 	@Autowired
 	private Recommend_book_listDao recommend_book_listDao;
-	public List<Recommend_book_list> getRecommend_book_list(){
-		//logger.info("测试开始");
+	public List<Recommend_book_list> getRecommend_book_listList(){
 		Recommend_book_list temp =new Recommend_book_list();
-		//logger.info("测试结束");
-		return recommend_book_listDao.getRecommend_book_list(temp);
+		return recommend_book_listDao.getRecommend_book_listList(temp);
+	}
+	public Recommend_book_list getOneRecommend_book_list(Recommend_book_list recommend_book_list){
+		return recommend_book_listDao.getOneRecommend_book_list(recommend_book_list);
+	}
+	public void addRecommend_book_list(Recommend_book_list recommend_book_list){
+		recommend_book_listDao.addRecommend_book_list(recommend_book_list);
+	}
+	public void editRecommend_book_list(Recommend_book_list recommend_book_list){
+		recommend_book_listDao.editRecommend_book_list(recommend_book_list);
 	}
 }
