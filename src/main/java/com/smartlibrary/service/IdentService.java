@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.IdentDao;
+import com.smartlibrary.domain.Ident;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.IdentDao;
-import com.smartlibrary.domain.Ident;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class IdentService {
 	public Ident getOneIdent(Ident ident){
 		return identDao.getOneIdent(ident);
 	}
-	public void addIdent(Ident ident){
-		identDao.addIdent(ident);
+	public int addIdent(Ident ident){
+		return identDao.addIdent(ident);
 	}
-	public void editIdent(Ident ident){
-		identDao.editIdent(ident);
+	public int editIdent(Ident ident){
+		return identDao.editIdent(ident);
 	}
 }

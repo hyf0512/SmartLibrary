@@ -30,7 +30,7 @@
 			   where commentid = #{commentid}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addBook_comment" parameterType="Book_comment">
+	<insert id="addBook_comment" parameterType="Book_comment" useGeneratedKeys="true" keyProperty="commentid">
 		insert into
 		book_comment (
 				college_id,
@@ -54,7 +54,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editBook_comment" parameterType="Book_comment">
+	<update id="editBook_comment" parameterType="Book_comment" useGeneratedKeys="true" keyProperty="commentid">
 		update
 		book_comment
 		set college_id 	= #{college_id},

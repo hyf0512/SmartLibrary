@@ -26,7 +26,7 @@
 			   where id = #{id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addRecommend_book_comment" parameterType="Recommend_book_comment">
+	<insert id="addRecommend_book_comment" parameterType="Recommend_book_comment" useGeneratedKeys="true" keyProperty="id">
 		insert into
 		recommend_book_comment (
 				account,
@@ -46,7 +46,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editRecommend_book_comment" parameterType="Recommend_book_comment">
+	<update id="editRecommend_book_comment" parameterType="Recommend_book_comment" useGeneratedKeys="true" keyProperty="id">
 		update
 		recommend_book_comment
 		set account 		= #{account},

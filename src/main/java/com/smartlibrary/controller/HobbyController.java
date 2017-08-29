@@ -1,23 +1,19 @@
 package com.smartlibrary.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.smartlibrary.domain.Hobby;
+import com.smartlibrary.service.HobbyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.alibaba.fastjson.JSONObject;
-import com.smartlibrary.domain.Hobby;
-import com.smartlibrary.service.HobbyService;
 
 @Controller
 @RequestMapping(value="/hobby")
@@ -35,7 +31,7 @@ public class HobbyController {
 			status = 1;
 			message = "查询列表成功";
 		} else {
-			status = -1;
+			status = 0;
 			message = "查询列表失败";
 		}
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -47,17 +43,18 @@ public class HobbyController {
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'
 		response.getWriter().print(resultStr);	//接口输出
 	}
+
 	@RequestMapping(value="/getOneHobby")
 	@ResponseBody
 	public void getOneHobby(Hobby hobby, HttpServletResponse response) throws IOException{
 		int status;
-		String message;
+		String message=null;
 		Hobby tempHobby = hobbyService.getOneHobby(hobby);
 		if (null != tempHobby) {
 			status = 1;
 			message = "查询单个成功";
 		} else {
-			status = -1;
+			status = 0;
 			message = "查询单个失败";
 		}
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -69,6 +66,7 @@ public class HobbyController {
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'
 		response.getWriter().print(resultStr);	//接口输出
 	}
+
 	@RequestMapping(value="/addHobby")
 	@ResponseBody
 	public void addHobby(Hobby hobby, HttpServletResponse response) throws IOException {
@@ -76,7 +74,7 @@ public class HobbyController {
 		String message = null;
 		if (1 == status) {
 			message = "添加成功";
-		} else if (-1 == status) {
+		} else if (0 == status) {
 			message = "添加失败";
 		}
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -94,7 +92,7 @@ public class HobbyController {
 		String message = null;
 		if (1 == status) {
 			message = "修改成功";
-		} else if (-1 == status) {
+		} else if (0 == status) {
 			message = "修改失败";
 		}
 		Map<String,Object> resultMap = new HashMap<String,Object>();

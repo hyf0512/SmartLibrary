@@ -18,7 +18,7 @@
 			   where college_id = #{college_id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addCollege" parameterType="College">
+	<insert id="addCollege" parameterType="College" useGeneratedKeys="true" keyProperty="college_id">
 		insert into
 		college (
 				school_id,
@@ -30,7 +30,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editCollege" parameterType="College">
+	<update id="editCollege" parameterType="College" useGeneratedKeys="true" keyProperty="college_id">
 		update
 		college
 		set school_id 	= #{school_id},

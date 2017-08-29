@@ -18,7 +18,7 @@
 			   where comment_rating_id = #{comment_rating_id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addComment_rating" parameterType="Comment_rating">
+	<insert id="addComment_rating" parameterType="Comment_rating" useGeneratedKeys="true" keyProperty="comment_rating_id">
 		insert into
 		comment_rating (
 				commentid,
@@ -30,7 +30,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editComment_rating" parameterType="Comment_rating">
+	<update id="editComment_rating" parameterType="Comment_rating" useGeneratedKeys="true" keyProperty="comment_rating_id">
 		update
 		comment_rating
 		set commentid 	= #{commentid},

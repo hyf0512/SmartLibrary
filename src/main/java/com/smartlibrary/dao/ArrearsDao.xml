@@ -26,7 +26,7 @@
 			   where id = #{id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addArrears" parameterType="Arrears">
+	<insert id="addArrears" parameterType="Arrears" useGeneratedKeys="true" keyProperty="id">
 		insert into
 		arrears (
 				studentid,
@@ -46,7 +46,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editArrears" parameterType="Arrears">
+	<update id="editArrears" parameterType="Arrears" useGeneratedKeys="true" keyProperty="id">
 		update
 		arrears
 		set studentid 	= #{studentid},

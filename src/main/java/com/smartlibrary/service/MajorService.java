@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.MajorDao;
+import com.smartlibrary.domain.Major;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.MajorDao;
-import com.smartlibrary.domain.Major;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class MajorService {
 	public Major getOneMajor(Major major){
 		return majorDao.getOneMajor(major);
 	}
-	public void addMajor(Major major){
-		majorDao.addMajor(major);
+	public int addMajor(Major major){
+		return majorDao.addMajor(major);
 	}
-	public void editMajor(Major major){
-		majorDao.editMajor(major);
+	public int editMajor(Major major){
+		return majorDao.editMajor(major);
 	}
 }

@@ -28,7 +28,7 @@
 			   where identid = #{identid}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addIdent" parameterType="Ident">
+	<insert id="addIdent" parameterType="Ident" useGeneratedKeys="true" keyProperty="identid">
 		insert into
 		ident (
 				school_id,
@@ -50,7 +50,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editIdent" parameterType="Ident">
+	<update id="editIdent" parameterType="Ident" useGeneratedKeys="true" keyProperty="identid">
 		update
 		ident
 		set school_id 	= #{school_id},

@@ -207,7 +207,7 @@
                     <attachClasses>true</attachClasses>
                     <classesClassifier>api</classesClassifier>
                 </configuration>
-                <version>2.4</version>
+                <version>2.3</version>
                 <executions>
                 </executions>
             </plugin>
@@ -221,5 +221,27 @@
         </configuration>  
     </plugin>  
         </plugins>
+
+      <resources>
+          <resource>
+              <directory>src/main/resources</directory>
+              <includes>
+                  <include>**/*.properties</include>
+                  <include>**/*.xml</include>
+                  <include>**/*.tld</include>
+              </includes>
+              <filtering>false</filtering>
+              <!--这里是false，用true会报 数据库连接 错误-->
+          </resource>
+          <resource>
+              <directory>src/main/java</directory>
+              <includes>
+                  <include>**/*.properties</include>
+                  <include>**/*.xml</include>
+                  <include>**/*.tld</include>
+              </includes>
+              <filtering>false</filtering>
+          </resource>
+      </resources>
   </build>
 </project>

@@ -18,7 +18,7 @@
 			   where major_id = #{major_id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addMajor" parameterType="Major">
+	<insert id="addMajor" parameterType="Major" useGeneratedKeys="true" keyProperty="major_id">
 		insert into
 		major (
 				college_id,
@@ -30,7 +30,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editMajor" parameterType="Major">
+	<update id="editMajor" parameterType="Major" useGeneratedKeys="true" keyProperty="major_id">
 		update
 		major
 		set college_id 	= #{college_id},

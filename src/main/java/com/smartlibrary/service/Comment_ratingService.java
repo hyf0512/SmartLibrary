@@ -23,10 +23,10 @@ public class Comment_ratingService {
 	public Comment_rating getOneComment_rating(Comment_rating comment_rating){
 		return comment_ratingDao.getOneComment_rating(comment_rating);
 	}
-	public void addComment_rating(Comment_rating comment_rating){
-		comment_ratingDao.addComment_rating(comment_rating);
+	public int addComment_rating(Comment_rating comment_rating){
+		return comment_ratingDao.addComment_rating(comment_rating);
 	}
-	public void editComment_rating(Comment_rating comment_rating){
-		comment_ratingDao.editComment_rating(comment_rating);
+	public int editComment_rating(Comment_rating comment_rating){
+		return comment_ratingDao.editComment_rating(comment_rating);
 	}
 }

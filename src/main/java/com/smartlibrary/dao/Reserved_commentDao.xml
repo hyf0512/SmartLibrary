@@ -38,7 +38,7 @@
 			   where reserved_id = #{reserved_id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addReserved_comment" parameterType="Reserved_comment">
+	<insert id="addReserved_comment" parameterType="Reserved_comment" useGeneratedKeys="true" keyProperty="reserved_id">
 		insert into
 		reserved_comment (
 				reserved_number,
@@ -70,7 +70,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editReserved_comment" parameterType="Reserved_comment">
+	<update id="editReserved_comment" parameterType="Reserved_comment" useGeneratedKeys="true" keyProperty="reserved_id">
 		update
 		reserved_comment
 		set reserved_number = #{reserved_number},

@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.RakingDao;
+import com.smartlibrary.domain.Raking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.RakingDao;
-import com.smartlibrary.domain.Raking;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class RakingService {
 	public Raking getOneRaking(Raking raking){
 		return rakingDao.getOneRaking(raking);
 	}
-	public void addRaking(Raking raking){
-		rakingDao.addRaking(raking);
+	public int addRaking(Raking raking){
+		return rakingDao.addRaking(raking);
 	}
-	public void editRaking(Raking raking){
-		rakingDao.editRaking(raking);
+	public int editRaking(Raking raking){
+		return rakingDao.editRaking(raking);
 	}
 }

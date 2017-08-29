@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.ArrearsDao;
+import com.smartlibrary.domain.Arrears;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.ArrearsDao;
-import com.smartlibrary.domain.Arrears;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class ArrearsService {
 	public Arrears getOneArrears(Arrears arrears){
 		return arrearsDao.getOneArrears(arrears);
 	}
-	public void addArrears(Arrears arrears){
-		arrearsDao.addArrears(arrears);
+	public int addArrears(Arrears arrears){
+		return arrearsDao.addArrears(arrears);
 	}
-	public void editArrears(Arrears arrears){
-		arrearsDao.editArrears(arrears);
+	public int editArrears(Arrears arrears){
+		return arrearsDao.editArrears(arrears);
 	}
 }

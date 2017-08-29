@@ -26,7 +26,7 @@
 			   where account = #{account}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addUser" parameterType="User">
+	<insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="account">
 		insert into
 		user (
 				account,
@@ -48,7 +48,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editUser" parameterType="User">
+	<update id="editUser" parameterType="User" useGeneratedKeys="true" keyProperty="account">
 		update
 		user
 		set password 	= #{password},

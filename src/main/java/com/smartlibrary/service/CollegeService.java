@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.CollegeDao;
+import com.smartlibrary.domain.College;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.CollegeDao;
-import com.smartlibrary.domain.College;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class CollegeService {
 	public College getOneCollege(College college){
 		return collegeDao.getOneCollege(college);
 	}
-	public void addCollege(College college){
-		collegeDao.addCollege(college);
+	public int addCollege(College college){
+		return collegeDao.addCollege(college);
 	}
-	public void editCollege(College college){
-		collegeDao.editCollege(college);
+	public int editCollege(College college){
+		return collegeDao.editCollege(college);
 	}
 }

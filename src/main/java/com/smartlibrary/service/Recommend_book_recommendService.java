@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.Recommend_book_recommendDao;
+import com.smartlibrary.domain.Recommend_book_recommend;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.Recommend_book_recommendDao;
-import com.smartlibrary.domain.Recommend_book_recommend;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class Recommend_book_recommendService {
 	public Recommend_book_recommend getOneRecommend_book_recommend(Recommend_book_recommend recommend_book_recommend){
 		return recommend_book_recommendDao.getOneRecommend_book_recommend(recommend_book_recommend);
 	}
-	public void addRecommend_book_recommend(Recommend_book_recommend recommend_book_recommend){
-		recommend_book_recommendDao.addRecommend_book_recommend(recommend_book_recommend);
+	public int addRecommend_book_recommend(Recommend_book_recommend recommend_book_recommend){
+		return recommend_book_recommendDao.addRecommend_book_recommend(recommend_book_recommend);
 	}
-	public void editRecommend_book_recommend(Recommend_book_recommend recommend_book_recommend){
-		recommend_book_recommendDao.editRecommend_book_recommend(recommend_book_recommend);
+	public int editRecommend_book_recommend(Recommend_book_recommend recommend_book_recommend){
+		return recommend_book_recommendDao.editRecommend_book_recommend(recommend_book_recommend);
 	}
 }

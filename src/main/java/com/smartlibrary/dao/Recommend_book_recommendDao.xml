@@ -18,7 +18,7 @@
 			   where id = #{id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addRecommend_book_recommend" parameterType="Recommend_book_recommend">
+	<insert id="addRecommend_book_recommend" parameterType="Recommend_book_recommend" useGeneratedKeys="true" keyProperty="id">
 		insert into
 		recommend_book_recommend (
 				recommend_id,
@@ -30,7 +30,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editRecommend_book_recommend" parameterType="Recommend_book_recommend">
+	<update id="editRecommend_book_recommend" parameterType="Recommend_book_recommend" useGeneratedKeys="true" keyProperty="id">
 		update
 		recommend_book_recommend
 		set recommend_id 	= #{recommend_id},

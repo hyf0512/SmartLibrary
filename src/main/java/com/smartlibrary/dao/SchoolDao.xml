@@ -16,7 +16,7 @@
 			   where school_id = #{school_id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addSchool" parameterType="School">
+	<insert id="addSchool" parameterType="School" useGeneratedKeys="true" keyProperty="school_id">
 		insert into
 		school (
 				name
@@ -26,7 +26,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editSchool" parameterType="School">
+	<update id="editSchool" parameterType="School" useGeneratedKeys="true" keyProperty="school_id">
 		update
 		school
 		set name 		= #{name}

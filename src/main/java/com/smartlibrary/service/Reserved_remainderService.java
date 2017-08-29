@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.Reserved_remainderDao;
+import com.smartlibrary.domain.Reserved_remainder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.Reserved_remainderDao;
-import com.smartlibrary.domain.Reserved_remainder;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class Reserved_remainderService {
 	public Reserved_remainder getOneReserved_remainder(Reserved_remainder reserved_remainder){
 		return reserved_remainderDao.getOneReserved_remainder(reserved_remainder);
 	}
-	public void addReserved_remainder(Reserved_remainder reserved_remainder){
-		reserved_remainderDao.addReserved_remainder(reserved_remainder);
+	public int addReserved_remainder(Reserved_remainder reserved_remainder){
+		return reserved_remainderDao.addReserved_remainder(reserved_remainder);
 	}
-	public void editReserved_remainder(Reserved_remainder reserved_remainder){
-		reserved_remainderDao.editReserved_remainder(reserved_remainder);
+	public int editReserved_remainder(Reserved_remainder reserved_remainder){
+		return reserved_remainderDao.editReserved_remainder(reserved_remainder);
 	}
 }

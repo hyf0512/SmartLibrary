@@ -6,7 +6,8 @@ public class User extends BaseObject{
 	 * 用户
 	 */
 	private static final long serialVersionUID = -1775298614368938621L;
-	
+
+	//账号是主键?????????????
 	private String account;
 	private String password;
 	private String name;

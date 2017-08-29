@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.Reserved_commentDao;
+import com.smartlibrary.domain.Reserved_comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.Reserved_commentDao;
-import com.smartlibrary.domain.Reserved_comment;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class Reserved_commentService {
 	public Reserved_comment getOneReserved_comment(Reserved_comment reserved_comment){
 		return reserved_commentDao.getOneReserved_comment(reserved_comment);
 	}
-	public void addReserved_comment(Reserved_comment reserved_comment){
-		reserved_commentDao.addReserved_comment(reserved_comment);
+	public int addReserved_comment(Reserved_comment reserved_comment){
+		return reserved_commentDao.addReserved_comment(reserved_comment);
 	}
-	public void editReserved_comment(Reserved_comment reserved_comment){
-		reserved_commentDao.editReserved_comment(reserved_comment);
+	public int editReserved_comment(Reserved_comment reserved_comment){
+		return reserved_commentDao.editReserved_comment(reserved_comment);
 	}
 }

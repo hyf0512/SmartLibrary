@@ -18,7 +18,7 @@
 			   where id = #{id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addEvent_registration" parameterType="Event_registration">
+	<insert id="addEvent_registration" parameterType="Event_registration" useGeneratedKeys="true" keyProperty="id">
 		insert into
 		event_registration (
 				reserved_id,
@@ -30,7 +30,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editEvent_registration" parameterType="Event_registration">
+	<update id="editEvent_registration" parameterType="Event_registration" useGeneratedKeys="true" keyProperty="id">
 		update
 		event_registration
 		set reserved_id = #{reserved_id},

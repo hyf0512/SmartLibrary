@@ -24,7 +24,7 @@
 			   where raking_id = #{raking_id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addRaking" parameterType="Raking">
+	<insert id="addRaking" parameterType="Raking" useGeneratedKeys="true" keyProperty="raking_id">
 		insert into
 		raking (
 				year,
@@ -42,7 +42,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editRaking" parameterType="Raking">
+	<update id="editRaking" parameterType="Raking" useGeneratedKeys="true" keyProperty="raking_id">
 		update
 		raking
 		set year 		= #{year},

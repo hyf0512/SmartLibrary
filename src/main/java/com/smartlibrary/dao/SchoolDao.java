@@ -1,12 +1,14 @@
 package com.smartlibrary.dao;
 
+import com.smartlibrary.domain.School;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-import com.smartlibrary.domain.School;
-
+@Repository
 public interface SchoolDao {
 	public abstract List<School> getSchoolList(School school);
 	public abstract School getOneSchool(School school);
-	public abstract void addSchool(School school);
-	public abstract void editSchool(School school);
+	public abstract int addSchool(School school);
+	public abstract int editSchool(School school);
 }

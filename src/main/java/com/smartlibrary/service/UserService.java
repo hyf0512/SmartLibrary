@@ -1,14 +1,12 @@
 package com.smartlibrary.service;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
+import com.smartlibrary.dao.UserDao;
+import com.smartlibrary.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartlibrary.dao.UserDao;
-import com.smartlibrary.domain.User;
+import java.util.List;
 
 
 @Service
@@ -23,10 +21,10 @@ public class UserService {
 	public User getOneUser(User user){
 		return userDao.getOneUser(user);
 	}
-	public void addUser(User user){
-		userDao.addUser(user);
+	public int addUser(User user){
+		return userDao.addUser(user);
 	}
-	public void editUser(User user){
-		userDao.editUser(user);
+	public int editUser(User user){
+		return userDao.editUser(user);
 	}
 }

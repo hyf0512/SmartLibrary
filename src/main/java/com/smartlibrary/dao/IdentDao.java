@@ -1,12 +1,14 @@
 package com.smartlibrary.dao;
 
+import com.smartlibrary.domain.Ident;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-import com.smartlibrary.domain.Ident;
-
+@Repository
 public interface IdentDao {
 	public abstract List<Ident> getIdentList(Ident ident);
 	public abstract Ident getOneIdent(Ident ident);
-	public abstract void addIdent(Ident ident);
-	public abstract void editIdent(Ident ident);
+	public abstract int addIdent(Ident ident);
+	public abstract int editIdent(Ident ident);
 }

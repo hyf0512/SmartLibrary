@@ -24,7 +24,7 @@
 			   where id = #{id}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addReserved_remainder" parameterType="Reserved_remainder">
+	<insert id="addReserved_remainder" parameterType="Reserved_remainder" useGeneratedKeys="true" keyProperty="id">
 		insert into
 		reserved_remainder (
 				account,
@@ -42,7 +42,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editReserved_remainder" parameterType="Reserved_remainder">
+	<update id="editReserved_remainder" parameterType="Reserved_remainder" useGeneratedKeys="true" keyProperty="id">
 		update
 		reserved_remainder
 		set account 	= #{account},
