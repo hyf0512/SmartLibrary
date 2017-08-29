@@ -23,10 +23,10 @@ public class HobbyService {
 	public Hobby getOneHobby(Hobby hobby){
 		return hobbyDao.getOneHobby(hobby);
 	}
-	public void addHobby(Hobby hobby){
-		hobbyDao.addHobby(hobby);
+	public int addHobby(Hobby hobby){
+		return hobbyDao.addHobby(hobby);
 	}
-	public void editHobby(Hobby hobby){
-		hobbyDao.editHobby(hobby);
+	public int editHobby(Hobby hobby){
+		return hobbyDao.editHobby(hobby);
 	}
 }

@@ -16,7 +16,7 @@
 			   where hobbyid = #{hobbyid}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addHobby" parameterType="Hobby">
+	<insert id="addHobby" parameterType="Hobby" useGeneratedKeys="true" keyProperty="hobbyid">
 		insert into
 		hobby (
 				name
@@ -26,7 +26,7 @@
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editHobby" parameterType="Hobby">
+	<update id="editHobby" parameterType="Hobby" useGeneratedKeys="true" keyProperty="hobbyid">
 		update
 		hobby
 		set name 		= #{name}
