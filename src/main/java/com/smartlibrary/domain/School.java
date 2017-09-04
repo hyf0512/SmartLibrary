@@ -9,6 +9,7 @@ public class School extends BaseObject{
 	
 	private String school_id;
 	private String name;
+	private String ad_url;
 	
 	public void setName(String name){
 		this.name = name;
@@ -22,5 +23,10 @@ public class School extends BaseObject{
 	public String getSchool_id(){
 		return school_id;
 	}
-
+	public void setAd_url(String ad_url){
+		this.ad_url = ad_url;
+	}
+	public String getAd_url(){
+		return ad_url;
+	}
 }

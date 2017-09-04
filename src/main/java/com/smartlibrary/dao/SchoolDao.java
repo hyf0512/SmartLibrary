@@ -11,4 +11,5 @@ public interface SchoolDao {
 	public abstract School getOneSchool(School school);
 	public abstract int addSchool(School school);
 	public abstract int editSchool(School school);
+	public abstract String getAd_url(School school);
 }

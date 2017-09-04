@@ -32,4 +32,10 @@
 		set name 		= #{name}
 		where school_id = #{school_id}
 	</update>
+	<!-- 查询单个学校对应的广告链接  -->
+	<select id="getAd_url" parameterType="School" resultType="String">
+		select ad_url as ad_url
+			   from school
+			   where school_id = #{school_id}
+	</select>
 </mapper>

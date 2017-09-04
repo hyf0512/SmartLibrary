@@ -27,4 +27,7 @@ public class SchoolService {
 	public int editSchool(School school){
 		return schoolDao.editSchool(school);
 	}
+	public String getAd_url(School school){
+		return schoolDao.getAd_url(school);
+	}
 }
