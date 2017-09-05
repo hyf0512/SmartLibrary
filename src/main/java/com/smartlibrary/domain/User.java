@@ -15,7 +15,13 @@ public class User extends BaseObject{
 	private String sex;
 	private String photourl;
 	private String nickname;
-	
+	private String oldpassword;
+	public String getOldpassword(){
+		return oldpassword;
+	}
+	public void setOldpassword(String oldpassword){
+		this.oldpassword=oldpassword;
+	}
 	public String getAccount() {
 		return account;
 	}

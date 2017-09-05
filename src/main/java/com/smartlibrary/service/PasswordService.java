@@ -3,13 +3,12 @@ package com.smartlibrary.service;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.json.JsonObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.smartlibrary.dao.RegisterDao;
+import com.smartlibrary.dao.UserDao;
 import com.smartlibrary.domain.User;
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
@@ -18,13 +17,16 @@ import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
 import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
 
 @Service
-public class RegisterService {
-
+public class PasswordService {
 	@Autowired
 	private RegisterDao registerdao;
 	public Map<String,String> SendMsg(String phone) throws Exception{
 		Map<String,String> sendresult = new HashMap<String, String>();
 		if(registerdao.ifuserexist(phone)==null){
+			sendresult.put("result", "0");
+			sendresult.put("err_msg", "该号码所对应的帐号不存在");
+		}
+		else{
 			String yzm=String.valueOf((int)((Math.random()*9+1)*100000));
 			String SmsParamString="{\"code\":\""+yzm+"\"}";
 			String url="http://gw.api.taobao.com/router/rest";//联创信息
@@ -51,29 +53,48 @@ public class RegisterService {
 			}
 			System.out.println(result);
 		}
-		else{
-			sendresult.put("result", "0");
-			sendresult.put("err_msg", "该号码已注册");
-		}
 		return sendresult;
-		
 	}
-	public Map<String,String> registeruser(User user){
-		Map<String,String> registresult = new HashMap<String, String>();
+	public Map<String,String> editpassword(User user){
+		Map<String,String> result = new HashMap<String, String>();
 		if(registerdao.ifuserexist(user.getAccount())==null){
-			try{
-				registerdao.insertuser(user);
-				registresult.put("result", "1");
-			}
-			catch(Exception e ){
-				registresult.put("result", "0");
-				registresult.put("err_msg", "注册失败");
-			}
+			result.put("result", "0");
+			result.put("erro_msg", "该帐号不存在");
 		}
 		else{
-			registresult.put("result", "0");
-			registresult.put("err_msg", "该帐号已存在");
+			try{
+				registerdao.editpassword(user);
+				result.put("result", "1");
+			}
+			catch(Exception e){
+				result.put("result", "0");
+				result.put("erro_msg", "更新错误");
+			}
 		}
-		return registresult;
+		return result;
+	}
+	public Map<String,String> updatepassword(User user){
+		Map<String,String> result = new HashMap<String, String>();
+		if(registerdao.ifuserexist(user.getAccount())==null){
+			result.put("result", "0");
+			result.put("erro_msg", "该帐号不存在");
+		}
+		else{
+			if(registerdao.getpassword(user.getAccount()).equals(user.getOldpassword())){
+				try{
+					registerdao.updatepassword(user);
+					result.put("result", "1");
+				}
+				catch(Exception e){
+					result.put("result", "0");
+					result.put("erro_msg", "更新失败");
+				}
+			}
+			else{
+				result.put("result", "0");
+				result.put("erro_msg", "原密码不正确");
+			}
+		}
+		return result;
 	}
 }

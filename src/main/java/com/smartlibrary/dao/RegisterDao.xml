@@ -5,4 +5,18 @@
 	<select id="ifuserexist" parameterType="String" resultType="String">
 		SELECT account FROM user where account=#{account}
 	</select>
+	<insert id="insertuser" parameterType="User">
+		insert into 
+		user(account,password) 
+		values(#{account},#{password})
+	</insert>
+	<update id="editpassword" parameterType="User">
+		update user set password=#{password} where account=#{account}
+	</update>
+	<select id="getpassword" parameterType="String" resultType="String">
+		SELECT password FROM user where account=#{account}
+	</select>
+	<update id="updatepassword" parameterType="User">
+		update user set password=#{password} where account=#{account}
+	</update>
 </mapper>
