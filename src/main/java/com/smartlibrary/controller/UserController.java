@@ -102,4 +102,12 @@ public class UserController {
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'
 		response.getWriter().print(resultStr);	//接口输出
 	}
+	/*
+	 * 登录接口
+	 */
+	@RequestMapping({"/login"})
+	@ResponseBody
+	public Map<String,String> UserLogin(User user){
+		return userService.loginUser(user);
+	}
 }
