@@ -30,7 +30,7 @@ public class PasswordController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e);
-			sendresult.put("result", "1");
+			sendresult.put("result", "0");
 			sendresult.put("err_msg", "发送失败");
 		}
 		return sendresult;
