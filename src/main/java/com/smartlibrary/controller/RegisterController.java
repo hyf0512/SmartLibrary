@@ -27,7 +27,7 @@ public class RegisterController {
 			sendresult=registerservice.SendMsg(phone);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			sendresult.put("result", "1");
+			sendresult.put("result", "0");
 			sendresult.put("err_msg", "发送失败");
 		}
 		return sendresult;
