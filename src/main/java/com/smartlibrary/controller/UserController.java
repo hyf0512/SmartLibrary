@@ -103,6 +103,30 @@ public class UserController {
 		response.getWriter().print(resultStr);	//接口输出
 	}
 	/*
+	 * 修改昵称接口
+	 */
+	@RequestMapping({"/editNickname"})
+	@ResponseBody
+	public Map<String,Object> editNickname(User user){
+		return userService.editNickname(user);
+	}
+	/*
+	 * 修改性别接口
+	 */
+	@RequestMapping({"/editSex"})
+	@ResponseBody
+	public Map<String,Object> editSex(User user){
+		return userService.editSex(user);
+	}
+	/*
+	 * 修改兴趣接口
+	 */
+	@RequestMapping({"/editHobbyid"})
+	@ResponseBody
+	public Map<String,Object> editHobbyid(User user){
+		return userService.editHobbyid(user);
+	}
+	/*
 	 * 登录接口
 	 */
 	@RequestMapping({"/login"})

@@ -11,4 +11,7 @@ public interface UserDao {
 	public abstract User getOneUser(User user);
 	public abstract int addUser(User user);
 	public abstract int editUser(User user);
+	public abstract int editNickname(User user);
+	public abstract int editSex(User user);
+	public abstract int editHobbyid(User user);
 }

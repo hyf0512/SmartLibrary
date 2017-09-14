@@ -1,6 +1,7 @@
 package com.smartlibrary.service;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.smartlibrary.dao.RegisterDao;
 import com.smartlibrary.dao.UserDao;
 import com.smartlibrary.domain.User;
@@ -32,6 +33,45 @@ public class UserService {
 	}
 	public int editUser(User user){
 		return userDao.editUser(user);
+	}
+	public Map<String,Object> editNickname(User user){
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		int status = userDao.editNickname(user);
+		String message = null;
+		if (1 == status) {
+			message = "修改成功";
+		} else if (0 == status) {
+			message = "修改失败";
+		}
+		resultMap.put("status", status);		//添加成功标记
+		resultMap.put("message", message);		//添加返回信息
+		return resultMap;
+	}
+	public Map<String,Object> editSex(User user){
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		int status = userDao.editSex(user);
+		String message = null;
+		if (1 == status) {
+			message = "修改成功";
+		} else if (0 == status) {
+			message = "修改失败";
+		}
+		resultMap.put("status", status);		//添加成功标记
+		resultMap.put("message", message);		//添加返回信息
+		return resultMap;
+	}
+	public Map<String,Object> editHobbyid(User user){
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		int status = userDao.editHobbyid(user);
+		String message = null;
+		if (1 == status) {
+			message = "修改成功";
+		} else if (0 == status) {
+			message = "修改失败";
+		}
+		resultMap.put("status", status);		//添加成功标记
+		resultMap.put("message", message);		//添加返回信息
+		return resultMap;
 	}
 	public Map<String,String> loginUser(User user){
 		Map<String,String> result = new HashMap<String, String>();

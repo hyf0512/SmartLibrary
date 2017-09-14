@@ -59,4 +59,25 @@
 			nickname 	= #{nickname}
 		where account = #{account}
 	</update>
+	<!-- 修改单个昵称  -->
+	<update id="editNickname" parameterType="User" useGeneratedKeys="true" keyProperty="account">
+		update
+		user
+		set nickname 	= #{nickname}
+		where account = #{account}
+	</update>
+	<!-- 修改单个性别  -->
+	<update id="editSex" parameterType="User" useGeneratedKeys="true" keyProperty="account">
+		update
+		user
+		set sex 		= #{sex}
+		where account = #{account}
+	</update>
+	<!-- 修改单个兴趣  -->
+	<update id="editHobbyid" parameterType="User" useGeneratedKeys="true" keyProperty="account">
+		update
+		user
+		set hobbyid 	= #{hobbyid}
+		where account = #{account}
+	</update>
 </mapper>
