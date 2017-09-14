@@ -15,14 +15,20 @@
 	</select>
 	<!-- 查询单个  -->
 	<select id="getOneUser" parameterType="User" resultType="User">
-		select account as account,
-			   password as password,
-			   name as name,
-			   hobbyid as hobbyid,
-			   sex as sex,
-			   photourl as photourl,
-			   nickname as nickname
-			   from user
+		select user.account as account,
+			   user.password as password,
+			   user.name as name,
+			   user.hobbyid as hobbyid,
+			   hobby.name as hobbyName,
+			   user.sex as sex,
+			   user.photourl as photourl,
+			   user.nickname as nickname
+			   from 
+			   user
+			   left join
+			   hobby
+			   ON
+			   user.hobbyid = hobby.hobbyid
 			   where account = #{account}
 	</select>
 	<!-- 增加单个  -->
