@@ -16,6 +16,7 @@ public class Raking extends BaseObject{
 	private String status;
 	private String flag;
 	private String change_number;
+	private String account;
 	
 	public String getRaking_id() {
 		return raking_id;
@@ -72,7 +73,12 @@ public class Raking extends BaseObject{
 	public String getChange_number() {
 		return change_number;
 	}
-
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	public String getAccount() {
+		return account;
+	}
 	
 
 }

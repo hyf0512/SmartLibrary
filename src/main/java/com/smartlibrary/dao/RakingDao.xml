@@ -9,14 +9,16 @@
 			   month as month,
 			   number as number,
 			   type as type,
-			   studentid as studentid,
+			   raking.studentid as studentid,
 			   status as status,
 			   flag as flag,
 			   change_number as change_number
 			   from raking
-			   where year = #{year} 
-			   and month = #{month}
-			   and studentid = #{studentid}
+			   left join ident
+			   on raking.studentid = ident.studentid
+			   where raking.year = #{year} 
+			   and raking.month = #{month}
+			   and ident.account = #{account}
 			   order by type asc, status asc
 	</select>
 	<!-- 查询单个  -->
