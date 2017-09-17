@@ -12,7 +12,8 @@
 			   raking.studentid as studentid,
 			   status as status,
 			   flag as flag,
-			   change_number as change_number
+			   change_number as change_number,
+			   ident.account as account
 			   from raking
 			   left join ident
 			   on raking.studentid = ident.studentid
