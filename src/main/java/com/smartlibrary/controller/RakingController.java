@@ -23,7 +23,10 @@ public class RakingController {
 	private RakingService rakingService;
 	@RequestMapping(value="/getRakingList")
 	@ResponseBody
-	public void getRakingList(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public Map<String,Object> getRakingList(Raking raking) {
+		
+		return rakingService.getRakingList(raking);
+		/*
 		int status;
 		String message;
 		List<Raking> tempRakingList= rakingService.getRakingList();
@@ -42,6 +45,7 @@ public class RakingController {
 		response.setContentType("text/json");	//设置格式为text/json
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'
 		response.getWriter().print(resultStr);	//接口输出
+		*/
 	}
 	@RequestMapping(value="/getOneRaking")
 	@ResponseBody

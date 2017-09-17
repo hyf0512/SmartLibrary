@@ -9,8 +9,15 @@
 			   month as month,
 			   number as number,
 			   type as type,
-			   studentid as studentid
+			   studentid as studentid,
+			   status as status,
+			   flag as flag,
+			   change_number as change_number
 			   from raking
+			   where year = #{year} 
+			   and month = #{month}
+			   and studentid = #{studentid}
+			   order by type asc, status asc
 	</select>
 	<!-- 查询单个  -->
 	<select id="getOneRaking" parameterType="Raking" resultType="Raking">
