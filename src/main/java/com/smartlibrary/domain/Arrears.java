@@ -14,6 +14,8 @@ public class Arrears extends BaseObject{
 	private String order_date;
 	private String day;
 	private String return_date;
+	private String type;
+	private String account;
 	
 	public String getId() {
 		return id;
@@ -57,8 +59,18 @@ public class Arrears extends BaseObject{
 	public void setReturn_date(String return_date) {
 		this.return_date = return_date;
 	}
-
-	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
 	
 
 }

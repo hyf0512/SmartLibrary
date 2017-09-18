@@ -25,7 +25,9 @@ public class ArrearsController {
 
 	@RequestMapping(value="/getArrearsList")
 	@ResponseBody
-	public void getArrearsList(HttpServletRequest request,HttpServletResponse response) throws IOException {
+	public Map<String,Object> getArrearsList(Arrears arrears) {
+		return arrearsService.getArrearsList(arrears);
+		/*
 		int status;
 		String message;
 		List<Arrears> tempArrearsList= arrearsService.getArrearsList();
@@ -44,8 +46,13 @@ public class ArrearsController {
 		response.setContentType("text/json");	//设置格式为text/json
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'
 		response.getWriter().print(resultStr);	//接口输出
+		*/
 	}
-
+	@RequestMapping(value="/getBooksList")
+	@ResponseBody
+	public Map<String,Object> getBooksList(Arrears arrears) {
+		return arrearsService.getBooksList(arrears);
+	}
 	@RequestMapping(value="/getOneArrears")
 	@ResponseBody
 	public void getOneArrears(Arrears arrears, HttpServletResponse response) throws IOException {

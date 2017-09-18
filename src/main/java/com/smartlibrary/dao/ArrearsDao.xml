@@ -2,16 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.ArrearsDao">
-	<!-- 查询所有  -->
+	<!-- 查询所有欠款  -->
 	<select id="getArrearsList" parameterType="Arrears" resultType="Arrears">
 		select id as id,
-			   studentid as studentid,
+			   arrears.studentid as studentid,
 			   book_name as book_name,
 			   fee as fee,
 			   order_date as order_date,
 			   day as day,
-			   return_date as return_date
+			   return_date as return_date,
+			   type as type,
+			   ident.account as account
 			   from arrears
+			   left join ident
+			   on arrears.studentid = ident.studentid
+			   where ident.account = #{account}
+			   and arrears.type = 1
+			   and ISNULL(arrears.return_date)
+	</select>
+	<!-- 查询所有未还书本  -->
+	<select id="getBooksList" parameterType="Arrears" resultType="Arrears">
+		select id as id,
+			   arrears.studentid as studentid,
+			   book_name as book_name,
+			   fee as fee,
+			   order_date as order_date,
+			   day as day,
+			   return_date as return_date,
+			   type as type,
+			   ident.account as account
+			   from arrears
+			   left join ident
+			   on arrears.studentid = ident.studentid
+			   where ident.account = #{account}
+			   and arrears.type = 2
+			   and ISNULL(arrears.return_date)
 	</select>
 	<!-- 查询单个  -->
 	<select id="getOneArrears" parameterType="Arrears" resultType="Arrears">
