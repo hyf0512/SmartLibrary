@@ -73,6 +73,20 @@ public class UserService {
 		resultMap.put("message", message);		//添加返回信息
 		return resultMap;
 	}
+	public Map<String,Object> editPhotourl(User user){
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		int status = userDao.editPhotourl(user);
+		String message = null;
+		if (1 == status) {
+			message = "上传头像成功";
+		} else if (0 == status) {
+			message = "上传头像失败";
+		}
+		resultMap.put("status", status);		//添加成功标记
+		resultMap.put("message", message);		//添加返回信息
+		return resultMap;
+	}
+	
 	public Map<String,String> loginUser(User user){
 		Map<String,String> result = new HashMap<String, String>();
 		if(registerdao.ifuserexist(user.getAccount())==null){

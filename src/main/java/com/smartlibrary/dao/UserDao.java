@@ -14,4 +14,5 @@ public interface UserDao {
 	public abstract int editNickname(User user);
 	public abstract int editSex(User user);
 	public abstract int editHobbyid(User user);
+	public abstract int editPhotourl(User user);
 }

@@ -86,4 +86,11 @@
 		set hobbyid 	= #{hobbyid}
 		where account = #{account}
 	</update>
+	<!-- 修改单个头像路径  -->
+	<update id="editPhotourl" parameterType="User" useGeneratedKeys="true" keyProperty="account">
+		update
+		user
+		set photourl 	= #{photourl}
+		where account = #{account}
+	</update>
 </mapper>
