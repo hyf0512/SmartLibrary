@@ -23,9 +23,18 @@
 			   account as account,
 			   studentid as studentid,
 			   grade as grade,
-			   state as state
+			   state as state,
+			   schoolName as schoolName,
+			   trueName as trueName,
+			   collegeName as collegeName,
+			   majorName as majorName,
+			   sex as sex,
+			   ident as ident,
+			   enrolYear as enrolYear,
+			   orderUrl as orderUrl
+
 			   from ident
-			   where identid = #{identid}
+			   where account = #{account}
 	</select>
 	<!-- 增加单个  -->
 	<insert id="addIdent" parameterType="Ident" useGeneratedKeys="true" keyProperty="identid">
@@ -37,7 +46,15 @@
 				account,
 				studentid,
 				grade,
-				state
+				state,
+				schoolName,
+				trueName,
+				collegeName,
+				majorName,
+				sex,
+				ident,
+				enrolYear,
+				orderUrl
 			   	)
 			   	values (
 			   	#{school_id},
@@ -46,20 +63,40 @@
 			   	#{account},
 			   	#{studentid},
 			   	#{grade},
-			   	#{state}
+			   	#{state},
+			   	#{schoolName},
+			   	#{trueName},
+			   	#{collegeName},
+			   	#{majorName},
+			   	#{sex},
+			   	#{ident},
+			   	#{enrolYear},
+			   	#{orderUrl}
+			   	
 			   	)
 	</insert>
 	<!-- 修改单个  -->
 	<update id="editIdent" parameterType="Ident" useGeneratedKeys="true" keyProperty="identid">
 		update
 		ident
-		set school_id 	= #{school_id},
+		set 
+		<!--school_id 	= #{school_id},
 			college_id 	= #{college_id},
 			major_id 	= #{major_id},
 			account 	= #{account},
 			studentid 	= #{studentid},
 			grade 		= #{grade},
-			state 		= #{state}
-		where identid = #{identid}
+			state 		= #{state}, -->
+			schoolName 	= #{schoolName},
+			studentid 	= #{studentid},
+			trueName 	= #{trueName},
+			collegeName = #{collegeName},
+			majorName 	= #{majorName},
+			sex 		= #{sex},
+			ident 		= #{ident},
+			enrolYear 	= #{enrolYear},
+			orderUrl 	= #{orderUrl}		
+			
+		where account = #{account}
 	</update>
 </mapper>

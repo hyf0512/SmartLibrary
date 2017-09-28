@@ -46,6 +46,7 @@ public class IdentController {
 	@RequestMapping(value="/getOneIdent")
 	@ResponseBody
 	public void getOneIdent(Ident ident, HttpServletResponse response) throws IOException{
+
 		int status;
 		String message=null;
 		Ident tempIdent = identService.getOneIdent(ident);
@@ -67,7 +68,23 @@ public class IdentController {
 	}
 	@RequestMapping(value="/addIdent")
 	@ResponseBody
-	public void addIdent(Ident ident, HttpServletResponse response) throws IOException{
+	public void addIdent(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		Ident ident = new Ident();
+		
+		ident.setAccount(new String(request.getParameter("account").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setSchoolName(new String(request.getParameter("schoolName").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setStudentid(new String(request.getParameter("studentid").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setTrueName(new String(request.getParameter("trueName").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setCollegeName(new String(request.getParameter("collegeName").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setMajorName(new String(request.getParameter("majorName").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setSex(new String(request.getParameter("sex").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setIdent(new String(request.getParameter("ident").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setEnrolYear(new String(request.getParameter("enrolYear").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setOrderUrl(new String(request.getParameter("orderUrl").getBytes("ISO8859-1"), "UTF-8"));
+		
 		int status = identService.addIdent(ident);
 		String message = null;
 		if (1 == status) {

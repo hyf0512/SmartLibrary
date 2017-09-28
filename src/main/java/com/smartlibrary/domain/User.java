@@ -17,6 +17,7 @@ public class User extends BaseObject{
 	private String photourl;
 	private String nickname;
 	private String oldpassword;
+	
 	public String getOldpassword(){
 		return oldpassword;
 	}
