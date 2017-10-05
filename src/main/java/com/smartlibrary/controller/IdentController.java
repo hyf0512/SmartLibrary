@@ -69,7 +69,7 @@ public class IdentController {
 	@RequestMapping(value="/addIdent")
 	@ResponseBody
 	public void addIdent(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+
 		request.setCharacterEncoding("UTF-8");
 		
 		Ident ident = new Ident();
@@ -88,7 +88,7 @@ public class IdentController {
 		int status = identService.addIdent(ident);
 		String message = null;
 		if (1 == status) {
-			message = "添加成功";
+			message = "添加或修改成功";
 		} else if (0 == status) {
 			message = "添加失败";
 		}

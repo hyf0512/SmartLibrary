@@ -22,7 +22,12 @@ public class IdentService {
 		return identDao.getOneIdent(ident);
 	}
 	public int addIdent(Ident ident){
-		return identDao.addIdent(ident);
+		if(identDao.getOneIdent(ident) == null) {
+			return identDao.addIdent(ident);
+		}
+		else {
+			return identDao.editIdent(ident);
+		}
 	}
 	public int editIdent(Ident ident){
 		return identDao.editIdent(ident);
