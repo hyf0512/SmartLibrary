@@ -10,6 +10,7 @@
 			   major_id as major_id,
 			   account as account,
 			   studentid as studentid,
+			   szLogonName as szLogonName,
 			   grade as grade,
 			   state as state
 			   from ident
@@ -22,6 +23,7 @@
 			   major_id as major_id,
 			   account as account,
 			   studentid as studentid,
+			   szLogonName as szLogonName,
 			   grade as grade,
 			   state as state,
 			   schoolName as schoolName,
@@ -45,6 +47,7 @@
 				major_id,
 				account,
 				studentid,
+				szLogonName,
 				grade,
 				state,
 				schoolName,
@@ -62,6 +65,7 @@
 			   	#{major_id},
 			   	#{account},
 			   	#{studentid},
+			   	#{szLogonName},
 			   	#{grade},
 			   	#{state},
 			   	#{schoolName},
@@ -89,6 +93,7 @@
 			state 		= #{state}, -->
 			schoolName 	= #{schoolName},
 			studentid 	= #{studentid},
+			szLogonName = #{szLogonName},
 			trueName 	= #{trueName},
 			collegeName = #{collegeName},
 			majorName 	= #{majorName},

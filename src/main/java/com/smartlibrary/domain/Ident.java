@@ -13,6 +13,7 @@ public class Ident extends BaseObject{
 	private String major_id;
 	private String account;
 	private String studentid;
+	private String szLogonName;
 	private String grade;
 	private String state;
 	private String schoolName;
@@ -24,7 +25,12 @@ public class Ident extends BaseObject{
 	private String enrolYear;
 	private String orderUrl;
 	
-	
+	public String getSzLogonName() {
+		return szLogonName;
+	}
+	public void setSzLogonName(String szLogonName) {
+		this.szLogonName = szLogonName;
+	}
 	public String getOrderUrl() {
 		return orderUrl;
 	}

@@ -77,6 +77,7 @@ public class IdentController {
 		ident.setAccount(new String(request.getParameter("account").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setSchoolName(new String(request.getParameter("schoolName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setStudentid(new String(request.getParameter("studentid").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setSzLogonName(new String(request.getParameter("szLogonName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setTrueName(new String(request.getParameter("trueName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setCollegeName(new String(request.getParameter("collegeName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setMajorName(new String(request.getParameter("majorName").getBytes("ISO8859-1"), "UTF-8"));
