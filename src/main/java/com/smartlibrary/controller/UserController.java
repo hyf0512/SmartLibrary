@@ -27,6 +27,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -124,7 +125,7 @@ public class UserController {
 	 */
 	@RequestMapping({"/editNickname"})
 	@ResponseBody
-	public Map<String,Object> editNickname(User user){
+	public Map<String,Object> editNickname(User user) throws UnsupportedEncodingException{
 		return userService.editNickname(user);
 	}
 	/*

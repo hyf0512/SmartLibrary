@@ -9,6 +9,7 @@ import com.smartlibrary.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,8 @@ public class UserService {
 	public int editUser(User user){
 		return userDao.editUser(user);
 	}
-	public Map<String,Object> editNickname(User user){
+	public Map<String,Object> editNickname(User user) throws UnsupportedEncodingException{
+		user.setNickname(new String(user.getNickname().getBytes("ISO8859-1"), "UTF-8"));
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		int status = userDao.editNickname(user);
 		String message = null;
