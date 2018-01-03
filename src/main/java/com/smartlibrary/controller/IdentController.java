@@ -84,6 +84,10 @@ public class IdentController {
 		ident.setSex(new String(request.getParameter("sex").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setIdent(new String(request.getParameter("ident").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setEnrolYear(new String(request.getParameter("enrolYear").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setAccessurl(new String(request.getParameter("accessurl").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setCPrintUrl(new String(request.getParameter("CPrintUrl").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setSmartLibUrl(new String(request.getParameter("SmartLibUrl").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setBookstoreurl(new String(request.getParameter("bookstoreurl").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setOrderUrl(new String(request.getParameter("orderUrl").getBytes("ISO8859-1"), "UTF-8"));
 		
 		int status = identService.addIdent(ident);

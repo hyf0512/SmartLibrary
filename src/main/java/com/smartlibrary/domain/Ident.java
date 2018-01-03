@@ -23,7 +23,36 @@ public class Ident extends BaseObject{
 	private String sex;
 	private String ident;
 	private String enrolYear;
+	private String accessurl;
+	private String CPrintUrl;
+	private String SmartLibUrl;
+	private String bookstoreurl;
 	private String orderUrl;
+	
+	public String getAccessurl() {
+		return accessurl;
+	}
+	public void setAccessurl(String accessurl) {
+		this.accessurl = accessurl;
+	}
+	public String getCPrintUrl() {
+		return CPrintUrl;
+	}
+	public void setCPrintUrl(String cPrintUrl) {
+		CPrintUrl = cPrintUrl;
+	}
+	public String getSmartLibUrl() {
+		return SmartLibUrl;
+	}
+	public void setSmartLibUrl(String smartLibUrl) {
+		SmartLibUrl = smartLibUrl;
+	}
+	public String getBookstoreurl() {
+		return bookstoreurl;
+	}
+	public void setBookstoreurl(String bookstoreurl) {
+		this.bookstoreurl = bookstoreurl;
+	}
 	
 	public String getSzLogonName() {
 		return szLogonName;
