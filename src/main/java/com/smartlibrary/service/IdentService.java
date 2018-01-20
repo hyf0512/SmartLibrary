@@ -21,12 +21,26 @@ public class IdentService {
 	public Ident getOneIdent(Ident ident){
 		return identDao.getOneIdent(ident);
 	}
+	public Ident getOneLogonName(Ident ident){
+		return identDao.getOneLogonName(ident);
+	}
 	public int addIdent(Ident ident){
-		if(identDao.getOneIdent(ident) == null) {
-			return identDao.addIdent(ident);
-		}
-		else {
-			return identDao.editIdent(ident);
+		if (identDao.getOneIdent(ident) == null) {
+			if (identDao.getOneLogonName(ident) == null) {
+				return identDao.addIdent(ident);
+			} else {
+				return 2;
+			}
+		} else {
+			if (identDao.getOneLogonName(ident) == null) {
+				return identDao.editIdent(ident);
+			} else {
+				if(identDao.getOneIdent(ident).getSzLogonName().equals(ident.getSzLogonName())) {
+					return identDao.editIdent(ident);
+				} else {
+					return 2;
+				}
+			}
 		}
 	}
 	public int editIdent(Ident ident){

@@ -7,22 +7,19 @@ public class Hobby extends BaseObject{
 	 */
 	private static final long serialVersionUID = -1775298614368938621L;
 	
-	private String hobbyid;
-	private String name;
+	private String hobbyId;
+	private String hobbyName;
+	public String getHobbyId() {
+		return hobbyId;
+	}
+	public void setHobbyId(String hobbyId) {
+		this.hobbyId = hobbyId;
+	}
+	public String getHobbyName() {
+		return hobbyName;
+	}
+	public void setHobbyName(String hobbyName) {
+		this.hobbyName = hobbyName;
+	}
 	
-	public String getHobbyid() {
-		return hobbyid;
-	}
-	public void setHobbyid(String hobbyid) {
-		this.hobbyid = hobbyid;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-
-
 }

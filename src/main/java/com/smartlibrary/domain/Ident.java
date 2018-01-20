@@ -8,51 +8,17 @@ public class Ident extends BaseObject{
 	private static final long serialVersionUID = -1775298614368938621L;
 	
 	private String identid;
-	private String school_id;
-	private String college_id;
-	private String major_id;
 	private String account;
-	private String studentid;
 	private String szLogonName;
-	private String grade;
-	private String state;
 	private String schoolName;
+	private String studentid;
 	private String trueName;
 	private String collegeName;
 	private String majorName;
 	private String sex;
 	private String ident;
 	private String enrolYear;
-	private String accessurl;
-	private String CPrintUrl;
-	private String SmartLibUrl;
-	private String bookstoreurl;
-	private String orderUrl;
-	
-	public String getAccessurl() {
-		return accessurl;
-	}
-	public void setAccessurl(String accessurl) {
-		this.accessurl = accessurl;
-	}
-	public String getCPrintUrl() {
-		return CPrintUrl;
-	}
-	public void setCPrintUrl(String cPrintUrl) {
-		CPrintUrl = cPrintUrl;
-	}
-	public String getSmartLibUrl() {
-		return SmartLibUrl;
-	}
-	public void setSmartLibUrl(String smartLibUrl) {
-		SmartLibUrl = smartLibUrl;
-	}
-	public String getBookstoreurl() {
-		return bookstoreurl;
-	}
-	public void setBookstoreurl(String bookstoreurl) {
-		this.bookstoreurl = bookstoreurl;
-	}
+	private String schoolCode;
 	
 	public String getSzLogonName() {
 		return szLogonName;
@@ -60,12 +26,7 @@ public class Ident extends BaseObject{
 	public void setSzLogonName(String szLogonName) {
 		this.szLogonName = szLogonName;
 	}
-	public String getOrderUrl() {
-		return orderUrl;
-	}
-	public void setOrderUrl(String orderUrl) {
-		this.orderUrl = orderUrl;
-	}
+
 	public String getStudentid() {
 		return studentid;
 	}
@@ -120,43 +81,19 @@ public class Ident extends BaseObject{
 	public void setIdentid(String identid) {
 		this.identid = identid;
 	}
-	public String getSchool_id() {
-		return school_id;
-	}
-	public void setSchool_id(String school_id) {
-		this.school_id = school_id;
-	}
-	public String getCollege_id() {
-		return college_id;
-	}
-	public void setCollege_id(String college_id) {
-		this.college_id = college_id;
-	}
-	public String getMajor_id() {
-		return major_id;
-	}
-	public void setMajor_id(String major_id) {
-		this.major_id = major_id;
-	}
+
 	public String getAccount() {
 		return account;
 	}
 	public void setAccount(String account) {
 		this.account = account;
 	}
-	public String getGrade() {
-		return grade;
+	public String getSchoolCode() {
+		return schoolCode;
 	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setSchoolCode(String schoolCode) {
+		this.schoolCode = schoolCode;
 	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	
-	
 
+	
 }

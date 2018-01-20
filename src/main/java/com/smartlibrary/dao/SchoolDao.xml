@@ -4,38 +4,47 @@
 <mapper namespace="com.smartlibrary.dao.SchoolDao">
 	<!-- 查询所有  -->
 	<select id="getSchoolList" parameterType="School" resultType="School">
-		select school_id as school_id,
-			   name as name
+		select schoolId as schoolId,
+			   schoolName as schoolName,
+			   adUrl as adUrl
+			   
 			   from school
 	</select>
 	<!-- 查询单个  -->
 	<select id="getOneSchool" parameterType="School" resultType="School">
-		select school_id as school_id,
-			   name as name
+		select schoolId as schoolId,
+			   schoolName as schoolName,
+			   adUrl as adUrl
+			   
 			   from school
-			   where school_id = #{school_id}
+			   where schoolId = #{schoolId}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addSchool" parameterType="School" useGeneratedKeys="true" keyProperty="school_id">
+	<insert id="addSchool" parameterType="School" useGeneratedKeys="true" keyProperty="schoolId">
 		insert into
 		school (
-				name
+				schoolName,
+				adUrl
 			   	)
 			   	values (
-			   	#{name}
+			   	#{schoolName},
+			   	#{adUrl}
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editSchool" parameterType="School" useGeneratedKeys="true" keyProperty="school_id">
+	<update id="editSchool" parameterType="School" useGeneratedKeys="true" keyProperty="schoolId">
 		update
 		school
-		set name 		= #{name}
-		where school_id = #{school_id}
+		
+		set schoolName  = #{schoolName},
+			adUrl		= #{adUrl}
+			
+		where schoolId = #{schoolId}
 	</update>
-	<!-- 查询单个学校对应的广告链接  -->
-	<select id="getAd_url" parameterType="School" resultType="String">
-		select ad_url as ad_url
-			   from school
-			   where school_id = #{school_id}
+	<!-- 查询单个学校对应的广告图片链接  -->
+	<select id="getAdUrl" parameterType="School" resultType="String">
+		select 	adUrl as adUrl
+			   	from school
+			   	where schoolId = #{schoolId}
 	</select>
 </mapper>

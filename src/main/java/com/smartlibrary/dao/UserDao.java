@@ -12,7 +12,7 @@ public interface UserDao {
 	public abstract int addUser(User user);
 	public abstract int editUser(User user);
 	public abstract int editNickname(User user);
-	public abstract int editSex(User user);
-	public abstract int editHobbyid(User user);
-	public abstract int editPhotourl(User user);
+	//public abstract int editSex(User user);
+	public abstract int editHobbyId(User user);
+	public abstract int editPhotoUrl(User user);
 }

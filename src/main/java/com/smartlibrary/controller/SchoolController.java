@@ -101,23 +101,23 @@ public class SchoolController {
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'
 		response.getWriter().print(resultStr);	//接口输出
 	}
-	@RequestMapping(value="/getAd_url")
+	@RequestMapping(value="/getAdUrl")
 	@ResponseBody
-	public void getAd_url(School school, HttpServletResponse response) throws IOException{
+	public void getAdUrl(School school, HttpServletResponse response) throws IOException{
 		int status;
 		String message=null;
-		String ad_url = schoolService.getAd_url(school);
-		if (null != ad_url) {
+		String adUrl = schoolService.getAdUrl(school);
+		if (null != adUrl) {
 			status = 1;
-			message = "查询广告链接成功";
+			message = "查询广告图片链接成功";
 		} else {
 			status = 0;
-			message = "查询广告链接失败";
+			message = "查询广告图片链接失败";
 		}
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		resultMap.put("status", status);		//添加成功标记
 		resultMap.put("message", message);		//添加返回信息
-		resultMap.put("data", ad_url);			//添加返回数据
+		resultMap.put("data", adUrl);			//添加返回数据
 		String resultStr = JSONObject.toJSONString(resultMap).toString();//HashMap转JSON
 		response.setContentType("text/json");	//设置格式为text/json
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'

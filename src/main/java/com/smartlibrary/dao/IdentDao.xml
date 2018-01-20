@@ -15,79 +15,72 @@
 			   state as state
 			   from ident
 	</select>
-	<!-- 查询单个  -->
+	<!-- 查询单个（通过应用帐号）  -->
 	<select id="getOneIdent" parameterType="Ident" resultType="Ident">
 		select identid as identid,
-			   school_id as school_id,
-			   college_id as college_id,
-			   major_id as major_id,
 			   account as account,
-			   studentid as studentid,
 			   szLogonName as szLogonName,
-			   grade as grade,
-			   state as state,
 			   schoolName as schoolName,
+			   studentid as studentid,  
 			   trueName as trueName,
 			   collegeName as collegeName,
 			   majorName as majorName,
 			   sex as sex,
 			   ident as ident,
 			   enrolYear as enrolYear,
-			   accessurl as accessurl,
-			   CPrintUrl as CPrintUrl,
-			   SmartLibUrl as SmartLibUrl,
-			   bookstoreurl as bookstoreurl,
-			   orderUrl as orderUrl
+			   schoolCode as schoolCode
 
 			   from ident
 			   where account = #{account}
 	</select>
+	
+	<!-- 查询是否已绑定学校帐号，避免学校帐号重复  -->
+	<select id="getOneLogonName" parameterType="Ident" resultType="Ident">
+		select identid as identid,
+			   account as account,
+			   szLogonName as szLogonName,
+			   schoolName as schoolName,
+			   studentid as studentid,  
+			   trueName as trueName,
+			   collegeName as collegeName,
+			   majorName as majorName,
+			   sex as sex,
+			   ident as ident,
+			   enrolYear as enrolYear,
+			   schoolCode as schoolCode
+
+			   from ident
+			   where szLogonName = #{szLogonName}
+	</select>
+	
 	<!-- 增加单个  -->
 	<insert id="addIdent" parameterType="Ident" useGeneratedKeys="true" keyProperty="identid">
 		insert into
 		ident (
-				school_id,
-				college_id,
-				major_id,
 				account,
-				studentid,
 				szLogonName,
-				grade,
-				state,
 				schoolName,
+				studentid,		
 				trueName,
 				collegeName,
 				majorName,
 				sex,
 				ident,
 				enrolYear,
-				accessurl,
-				CPrintUrl,
-				SmartLibUrl,
-				bookstoreurl,
-				orderUrl
+				schoolCode
 			   	)
 			   	values (
-			   	#{school_id},
-			   	#{college_id},
-			   	#{major_id},
 			   	#{account},
-			   	#{studentid},
 			   	#{szLogonName},
-			   	#{grade},
-			   	#{state},
 			   	#{schoolName},
+			   	#{studentid},
 			   	#{trueName},
 			   	#{collegeName},
 			   	#{majorName},
 			   	#{sex},
 			   	#{ident},
 			   	#{enrolYear},
-			   	#{accessurl},
-			   	#{CPrintUrl},
-			   	#{SmartLibUrl},
-			   	#{bookstoreurl},
-			   	#{orderUrl}
+			   	#{schoolCode}
 			   	
 			   	)
 	</insert>
@@ -96,27 +89,16 @@
 		update
 		ident
 		set 
-		<!--school_id 	= #{school_id},
-			college_id 	= #{college_id},
-			major_id 	= #{major_id},
-			account 	= #{account},
-			studentid 	= #{studentid},
-			grade 		= #{grade},
-			state 		= #{state}, -->
-			schoolName 	= #{schoolName},
-			studentid 	= #{studentid},
 			szLogonName = #{szLogonName},
+			schoolName 	= #{schoolName},
+			studentid 	= #{studentid},		
 			trueName 	= #{trueName},
 			collegeName = #{collegeName},
 			majorName 	= #{majorName},
 			sex 		= #{sex},
 			ident 		= #{ident},
 			enrolYear 	= #{enrolYear},
-			accessurl 	= #{accessurl},
-			CPrintUrl 	= #{CPrintUrl},
-			SmartLibUrl = #{SmartLibUrl},
-			bookstoreurl= #{bookstoreurl},
-			orderUrl 	= #{orderUrl}		
+			schoolCode  = #{schoolCode}		
 			
 		where account = #{account}
 	</update>

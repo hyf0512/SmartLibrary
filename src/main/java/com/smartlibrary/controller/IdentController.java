@@ -75,20 +75,16 @@ public class IdentController {
 		Ident ident = new Ident();
 		
 		ident.setAccount(new String(request.getParameter("account").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setSzLogonName(new String(request.getParameter("szLogonName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setSchoolName(new String(request.getParameter("schoolName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setStudentid(new String(request.getParameter("studentid").getBytes("ISO8859-1"), "UTF-8"));
-		ident.setSzLogonName(new String(request.getParameter("szLogonName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setTrueName(new String(request.getParameter("trueName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setCollegeName(new String(request.getParameter("collegeName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setMajorName(new String(request.getParameter("majorName").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setSex(new String(request.getParameter("sex").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setIdent(new String(request.getParameter("ident").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setEnrolYear(new String(request.getParameter("enrolYear").getBytes("ISO8859-1"), "UTF-8"));
-		ident.setAccessurl(new String(request.getParameter("accessurl").getBytes("ISO8859-1"), "UTF-8"));
-		ident.setCPrintUrl(new String(request.getParameter("CPrintUrl").getBytes("ISO8859-1"), "UTF-8"));
-		ident.setSmartLibUrl(new String(request.getParameter("SmartLibUrl").getBytes("ISO8859-1"), "UTF-8"));
-		ident.setBookstoreurl(new String(request.getParameter("bookstoreurl").getBytes("ISO8859-1"), "UTF-8"));
-		ident.setOrderUrl(new String(request.getParameter("orderUrl").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setSchoolCode(new String(request.getParameter("schoolCode").getBytes("ISO8859-1"), "UTF-8"));
 		
 		int status = identService.addIdent(ident);
 		String message = null;
@@ -96,6 +92,8 @@ public class IdentController {
 			message = "添加或修改成功";
 		} else if (0 == status) {
 			message = "添加失败";
+		} else if (2 == status){
+			message = "该学号已被绑定";
 		}
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		resultMap.put("status", status);		//添加成功标记

@@ -131,29 +131,31 @@ public class UserController {
 	/*
 	 * 修改性别接口
 	 */
+	/*
 	@RequestMapping({"/editSex"})
 	@ResponseBody
 	public Map<String,Object> editSex(User user){
 		return userService.editSex(user);
 	}
+	*/
 	/*
 	 * 修改兴趣接口
 	 */
-	@RequestMapping({"/editHobbyid"})
+	@RequestMapping({"/editHobbyId"})
 	@ResponseBody
-	public Map<String,Object> editHobbyid(User user){
-		return userService.editHobbyid(user);
+	public Map<String,Object> editHobbyId(User user){
+		return userService.editHobbyId(user);
 	}
 	/*
 	 * 修改头像路径接口
 	 */
-	@RequestMapping({"/editPhotourl"})
+	@RequestMapping({"/editPhotoUrl"})
 	@ResponseBody
-	public Map<String,Object> editPhotourl(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile file)  throws IOException {
+	public Map<String,Object> editPhotoUrl(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile file)  throws IOException {
 		
 		User user = new User();
 		user.setAccount(request.getParameter("account"));
-		user.setPhotourl(request.getParameter("photourl"));
+		user.setPhotoUrl(request.getParameter("photoUrl"));
 				 
             if(file.isEmpty()){   
                 System.out.println("文件未上传");   
@@ -169,7 +171,7 @@ public class UserController {
                 FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realPath, request.getParameter("account") + ".jpg"));   
             }    
 		
-		return userService.editPhotourl(user);
+		return userService.editPhotoUrl(user);
 	}
 	/*
 	 * 登录接口

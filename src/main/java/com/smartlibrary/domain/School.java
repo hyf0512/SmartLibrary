@@ -7,26 +7,27 @@ public class School extends BaseObject{
 	 */
 	private static final long serialVersionUID = -1775298614368938621L;
 	
-	private String school_id;
-	private String name;
-	private String ad_url;
+	private String schoolId;
+	private String schoolName;
+	private String adUrl;
+	public String getSchoolId() {
+		return schoolId;
+	}
+	public void setSchoolId(String schoolId) {
+		this.schoolId = schoolId;
+	}
+	public String getSchoolName() {
+		return schoolName;
+	}
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+	public String getAdUrl() {
+		return adUrl;
+	}
+	public void setAdUrl(String adUrl) {
+		this.adUrl = adUrl;
+	}
 	
-	public void setName(String name){
-		this.name = name;
-	}
-	public String getName(){
-		return name;
-	}
-	public void setSchool_id(String school_id){
-		this.school_id = school_id;
-	}
-	public String getSchool_id(){
-		return school_id;
-	}
-	public void setAd_url(String ad_url){
-		this.ad_url = ad_url;
-	}
-	public String getAd_url(){
-		return ad_url;
-	}
+	
 }

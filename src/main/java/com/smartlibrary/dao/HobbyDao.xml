@@ -4,32 +4,32 @@
 <mapper namespace="com.smartlibrary.dao.HobbyDao">
 	<!-- 查询所有  -->
 	<select id="getHobbyList" parameterType="Hobby" resultType="Hobby">
-		select hobbyid as hobbyid,
-			   name as name
+		select hobbyId as hobbyId,
+			   hobbyName as hobbyName
 			   from hobby
 	</select>
 	<!-- 查询单个  -->
 	<select id="getOneHobby" parameterType="Hobby" resultType="Hobby">
-		select hobbyid as hobbyid,
-			   name as name
+		select hobbyId as hobbyId,
+			   hobbyName as hobbyName
 			   from hobby
-			   where hobbyid = #{hobbyid}
+			   where hobbyId = #{hobbyId}
 	</select>
 	<!-- 增加单个  -->
-	<insert id="addHobby" parameterType="Hobby" useGeneratedKeys="true" keyProperty="hobbyid">
+	<insert id="addHobby" parameterType="Hobby" useGeneratedKeys="true" keyProperty="hobbyId">
 		insert into
 		hobby (
-				name
+				hobbyName
 			   	)
 			   	values (
-			   	#{name}
+			   	#{hobbyName}
 			   	)
 	</insert>
 	<!-- 修改单个  -->
-	<update id="editHobby" parameterType="Hobby" useGeneratedKeys="true" keyProperty="hobbyid">
+	<update id="editHobby" parameterType="Hobby" useGeneratedKeys="true" keyProperty="hobbyId">
 		update
 		hobby
-		set name 		= #{name}
-		where hobbyid = #{hobbyid}
+		set hobbyName 		= #{hobbyName}
+		where hobbyId = #{hobbyId}
 	</update>
 </mapper>

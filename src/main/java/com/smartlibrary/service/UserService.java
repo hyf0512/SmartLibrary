@@ -49,6 +49,7 @@ public class UserService {
 		resultMap.put("message", message);		//添加返回信息
 		return resultMap;
 	}
+	/*
 	public Map<String,Object> editSex(User user){
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		int status = userDao.editSex(user);
@@ -62,9 +63,10 @@ public class UserService {
 		resultMap.put("message", message);		//添加返回信息
 		return resultMap;
 	}
-	public Map<String,Object> editHobbyid(User user){
+	*/
+	public Map<String,Object> editHobbyId(User user){
 		Map<String,Object> resultMap = new HashMap<String,Object>();
-		int status = userDao.editHobbyid(user);
+		int status = userDao.editHobbyId(user);
 		String message = null;
 		if (1 == status) {
 			message = "修改成功";
@@ -75,9 +77,9 @@ public class UserService {
 		resultMap.put("message", message);		//添加返回信息
 		return resultMap;
 	}
-	public Map<String,Object> editPhotourl(User user){
+	public Map<String,Object> editPhotoUrl(User user){
 		Map<String,Object> resultMap = new HashMap<String,Object>();
-		int status = userDao.editPhotourl(user);
+		int status = userDao.editPhotoUrl(user);
 		String message = null;
 		if (1 == status) {
 			message = "上传头像成功";

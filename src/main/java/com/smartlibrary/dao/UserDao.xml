@@ -4,32 +4,32 @@
 <mapper namespace="com.smartlibrary.dao.UserDao">
 	<!-- 查询所有  -->
 	<select id="getUserList" parameterType="User" resultType="User">
-		select account as account,
-			   password as password,
-			   name as name,
-			   hobbyid as hobbyid,
-			   sex as sex,
-			   photourl as photourl,
-			   nickname as nickname
-			   from user
+		select 	id as id,
+				account as account,
+			   	password as password,
+			   	nickname as nickname,
+			   	photoUrl as photoUrl,
+			   	hobbyId as hobbyId
+			   	
+			   	from user
 	</select>
 	<!-- 查询单个  -->
 	<select id="getOneUser" parameterType="User" resultType="User">
-		select user.account as account,
-			   user.password as password,
-			   user.name as name,
-			   user.hobbyid as hobbyid,
-			   hobby.name as hobbyName,
-			   user.sex as sex,
-			   user.photourl as photourl,
-			   user.nickname as nickname
-			   from 
-			   user
-			   left join
-			   hobby
-			   ON
-			   user.hobbyid = hobby.hobbyid
-			   where account = #{account}
+		select 	user.id as id
+				user.account as account,
+			   	user.password as password,
+			   	user.nickname as nickname,
+			   	user.photoUrl as photoUrl,
+			   	user.hobbyId as hobbyId,
+			   	hobby.hobbyName as hobbyName
+			   	
+			   	from 
+			   	user
+			   	left join
+			   	hobby
+			   	ON
+			   	user.hobbyId = hobby.hobbyId
+			   	where account = #{account}
 	</select>
 	<!-- 增加单个  -->
 	<insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="account">
@@ -37,32 +37,30 @@
 		user (
 				account,
 				password,
-				name,
-				hobbyid,
-				sex,
-				photourl,
-			  	nickname
+				nickname,
+				photoUrl,
+				hobbyId
+			  	
 			   	)
 			   	values (
 			   	#{account},
 			   	#{password},
-			   	#{name},
-			   	#{hobbyid},
-			   	#{sex},
-			   	#{photourl},
-			   	#{nickname}
+			   	#{nickname},
+			   	#{photoUrl},
+			   	#{hobbyId}
+			   	
 			   	)
 	</insert>
 	<!-- 修改单个  -->
 	<update id="editUser" parameterType="User" useGeneratedKeys="true" keyProperty="account">
 		update
 		user
-		set password 	= #{password},
-			name 		= #{name},
-			hobbyid 	= #{hobbyid},
-			sex 		= #{sex},
-			photourl 	= #{photourl},
-			nickname 	= #{nickname}
+		set account 	= #{account},
+			password 	= #{password},
+			nickname 	= #{nickname},
+			photoUrl 	= #{photoUrl},
+			hobbyId 	= #{hobbyId}			
+			
 		where account = #{account}
 	</update>
 	<!-- 修改单个昵称  -->
@@ -73,24 +71,26 @@
 		where account = #{account}
 	</update>
 	<!-- 修改单个性别  -->
+	<!-- 
 	<update id="editSex" parameterType="User" useGeneratedKeys="true" keyProperty="account">
 		update
 		user
 		set sex 		= #{sex}
 		where account = #{account}
 	</update>
+	-->
 	<!-- 修改单个兴趣  -->
-	<update id="editHobbyid" parameterType="User" useGeneratedKeys="true" keyProperty="account">
+	<update id="editHobbyId" parameterType="User" useGeneratedKeys="true" keyProperty="account">
 		update
 		user
-		set hobbyid 	= #{hobbyid}
+		set hobbyId 	= #{hobbyId}
 		where account = #{account}
 	</update>
 	<!-- 修改单个头像路径  -->
-	<update id="editPhotourl" parameterType="User" useGeneratedKeys="true" keyProperty="account">
+	<update id="editPhotoUrl" parameterType="User" useGeneratedKeys="true" keyProperty="account">
 		update
 		user
-		set photourl 	= #{photourl}
+		set photoUrl 	= #{photoUrl}
 		where account = #{account}
 	</update>
 </mapper>
