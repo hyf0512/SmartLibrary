@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartlibrary.dao.VersionDao">
+	<!-- 查询所有  -->
+	<select id="getVersionList" parameterType="Version" resultType="Version">
+		select id as id,
+			   url as url,
+			   version as version,
+			   date as date
+			   
+			   from version
+	</select>
+	<!-- 查询单个  -->
+	<select id="getOneVersion" parameterType="Version" resultType="Version">
+		select id as id,
+			   url as url,
+			   version as version,
+			   date as date
+			   
+			   from version
+			   
+			   where version = #{version}
+	</select>
+	<!-- 查询最近版本  -->
+	<select id="getLastVersion" parameterType="Version" resultType="Version">
+		select id as id,
+			   url as url,
+			   version as version,
+			   date as date
+			   
+			   from version
+			   order by id desc
+			   LIMIT 1
+	</select>
+	<!-- 增加单个  -->
+	<insert id="addVersion" parameterType="Version" useGeneratedKeys="true" keyProperty="version">
+		insert into
+		version (
+				url,
+				version,
+				date
+			   	)
+			   	values (
+			   	#{url},
+			   	#{version},
+			   	#{date}
+			   	)
+	</insert>
+	<!-- 修改单个  -->
+	<update id="editVersion" parameterType="Version" useGeneratedKeys="true" keyProperty="version">
+		update
+		version
+		set url		= #{url},
+			version = #{version},
+			date 	= #{date}
+			
+		where version = #{version}
+	</update>
+</mapper>
