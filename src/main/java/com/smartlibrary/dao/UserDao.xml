@@ -15,7 +15,7 @@
 	</select>
 	<!-- 查询单个  -->
 	<select id="getOneUser" parameterType="User" resultType="User">
-		select 	user.id as id
+		select 	user.id as id,
 				user.account as account,
 			   	user.password as password,
 			   	user.nickname as nickname,

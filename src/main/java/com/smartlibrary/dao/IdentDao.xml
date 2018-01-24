@@ -51,6 +51,7 @@
 
 			   from ident
 			   where szLogonName = #{szLogonName}
+			   LIMIT 1
 	</select>
 	
 	<!-- 增加单个  -->
