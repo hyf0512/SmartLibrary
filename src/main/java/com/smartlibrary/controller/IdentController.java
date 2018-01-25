@@ -89,9 +89,9 @@ public class IdentController {
 		int status = identService.addIdent(ident);
 		String message = null;
 		if (1 == status) {
-			message = "添加或修改成功";
+			message = "绑定成功";
 		} else if (0 == status) {
-			message = "添加失败";
+			message = "绑定失败";
 		} else if (2 == status){
 			message = "该学号已被绑定";
 		}

@@ -17,7 +17,7 @@
 	<select id="getOneUser" parameterType="User" resultType="User">
 		select 	user.id as id,
 				user.account as account,
-			   	user.password as password,
+			   	<!--user.password as password, -->
 			   	user.nickname as nickname,
 			   	user.photoUrl as photoUrl,
 			   	user.hobbyId as hobbyId,

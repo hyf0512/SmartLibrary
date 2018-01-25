@@ -36,15 +36,21 @@ public class UserService {
 		return userDao.editUser(user);
 	}
 	public Map<String,Object> editNickname(User user) throws UnsupportedEncodingException{
-		user.setNickname(new String(user.getNickname().getBytes("ISO8859-1"), "UTF-8"));
-		Map<String,Object> resultMap = new HashMap<String,Object>();
-		int status = userDao.editNickname(user);
+		int status;
 		String message = null;
-		if (1 == status) {
-			message = "修改成功";
-		} else if (0 == status) {
-			message = "修改失败";
-		}
+		Map<String,Object> resultMap = new HashMap<String,Object>();
+		if (user.getNickname().equals("")) {
+			status = 0;
+			message = "昵称不能为空";
+		} else {
+			user.setNickname(new String(user.getNickname().getBytes("ISO8859-1"), "UTF-8"));		
+			status = userDao.editNickname(user);
+			if (1 == status) {
+				message = "修改成功";
+			} else if (0 == status) {
+				message = "修改失败";
+			}
+		}	
 		resultMap.put("status", status);		//添加成功标记
 		resultMap.put("message", message);		//添加返回信息
 		return resultMap;
@@ -100,6 +106,7 @@ public class UserService {
 		else{
 			if(registerdao.getpassword(user.getAccount()).equals(user.getPassword())){
 				result.put("result", "1");
+				result.put("err_msg", "登录成功");
 			}
 			else{
 				result.put("result", "0");

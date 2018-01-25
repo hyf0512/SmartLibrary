@@ -45,6 +45,7 @@ public class PasswordService {
 			result = result.getJSONObject("alibaba_aliqin_fc_sms_num_send_response").getJSONObject("result");
 			if(result.getString("err_code").equals("0")){
 				sendresult.put("result", "1");
+				sendresult.put("err_msg", "发送成功");
 				sendresult.put("code", yzm);
 			}
 			else{
@@ -59,16 +60,17 @@ public class PasswordService {
 		Map<String,String> result = new HashMap<String, String>();
 		if(registerdao.ifuserexist(user.getAccount())==null){
 			result.put("result", "0");
-			result.put("erro_msg", "该帐号不存在");
+			result.put("err_msg", "该帐号不存在");
 		}
 		else{
 			try{
 				registerdao.editpassword(user);
 				result.put("result", "1");
+				result.put("err_msg", "重置密码成功");
 			}
 			catch(Exception e){
 				result.put("result", "0");
-				result.put("erro_msg", "更新错误");
+				result.put("err_msg", "重置错误");
 			}
 		}
 		return result;
@@ -77,22 +79,23 @@ public class PasswordService {
 		Map<String,String> result = new HashMap<String, String>();
 		if(registerdao.ifuserexist(user.getAccount())==null){
 			result.put("result", "0");
-			result.put("erro_msg", "该帐号不存在");
+			result.put("err_msg", "该帐号不存在");
 		}
 		else{
 			if(registerdao.getpassword(user.getAccount()).equals(user.getOldpassword())){
 				try{
 					registerdao.updatepassword(user);
 					result.put("result", "1");
+					result.put("err_msg", "修改成功");
 				}
 				catch(Exception e){
 					result.put("result", "0");
-					result.put("erro_msg", "更新失败");
+					result.put("err_msg", "修改失败");
 				}
 			}
 			else{
 				result.put("result", "0");
-				result.put("erro_msg", "原密码不正确");
+				result.put("err_msg", "原密码不正确");
 			}
 		}
 		return result;

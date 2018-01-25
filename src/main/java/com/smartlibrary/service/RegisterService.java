@@ -43,6 +43,7 @@ public class RegisterService {
 			result = result.getJSONObject("alibaba_aliqin_fc_sms_num_send_response").getJSONObject("result");
 			if(result.getString("err_code").equals("0")){
 				sendresult.put("result", "1");
+				sendresult.put("err_msg", "发送成功");
 				sendresult.put("code", yzm);
 			}
 			else{
@@ -64,6 +65,7 @@ public class RegisterService {
 			try{
 				registerdao.insertuser(user);
 				registresult.put("result", "1");
+				registresult.put("err_msg", "注册成功");
 			}
 			catch(Exception e ){
 				registresult.put("result", "0");

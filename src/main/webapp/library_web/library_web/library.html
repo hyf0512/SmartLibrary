@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+    <meta name="format-detection" content="telephone=no"> 
+    <link href="./library.css" rel="stylesheet">
+    <title>LIBRARY</title>
+</head>
+
+<body id="main">
+    <div class="bar">
+        <span class="bar-text">图书信息</span>
+    </div>
+    <div>
+        <!-- <div class="book-img">
+            <img id="img" style=" border:1px solid #efefef;" src="http://img3.doubanio.com/mpic/s29521268.jpg">
+        </div> -->
+        <div class="book-detail" id="book_detail">
+            <div class="book-detail-item">
+                <span class="item-title">书名</span>
+                <span class="item-content" id="book_name"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">书籍类型</span>
+                <span class="item-content" id="status"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">责任者</span>
+                <span class="item-content" id="author"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">ISBN号</span>
+                <span class="item-content" id="ISBN"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">中图分类号</span>
+                <span class="item-content" id="CLCNumber"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">文献类型</span>
+                <span class="item-content" id="type"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <div class="item-title">出版社</div>
+                <div class="item-content" id="publisher"></div>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <div class="item-title">出版时间</div>
+                <div class="item-content" id="publishDate"></div>
+            </div><div class="book-detail-item book-detail-item-padding-top">
+                <div class="item-title">总借阅人数</div>
+                <div class="item-content" id="borrow_num"></div>
+            </div>
+        </div>
+    </div>
+    <div class="collection">
+        <div class="bar bar-collectionInfo">
+            <span class="bar-text">馆藏信息</span>
+        </div>
+        <div class="collectionInfo">
+            <div class="book-detail-item">
+                <span class="item-title">索书号</span>
+                <span class="item-content" id="call_num"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">条码号</span>
+                <span class="item-content" id="bar_code"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">馆藏地</span>
+                <span class="item-content" id="location"></span>
+            </div>
+            <div class="book-detail-item book-detail-item-padding-top">
+                <span class="item-title">库存数量</span>
+                <span class="item-content" id="store"></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="./jquery.min.js"></script>
+<script src="./library.js"></script>
+</html>
