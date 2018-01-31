@@ -181,4 +181,21 @@ public class UserController {
 	public Map<String,String> UserLogin(User user){
 		return userService.loginUser(user);
 	}
+	
+	/*
+	 * 登录短信接口
+	 */
+	@RequestMapping({"/sendmsg"})
+	@ResponseBody
+	private Map<String,String> SendMessage(String phone){
+		Map<String,String> sendresult = new HashMap<String, String>();
+		try {
+			sendresult=userService.SendMsg(phone);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sendresult.put("result", "0");
+			sendresult.put("err_msg", "发送失败");
+		}
+		return sendresult;
+	}
 }
