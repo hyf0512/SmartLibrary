@@ -23,10 +23,10 @@ public class IdentController {
 	private IdentService identService;
 	@RequestMapping(value="/getIdentList")
 	@ResponseBody
-	public void getIdentList(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void getIdentList(Ident ident, HttpServletResponse response) throws IOException {
 		int status;
 		String message;
-		List<Ident> tempIdentList= identService.getIdentList();
+		List<Ident> tempIdentList= identService.getIdentList(ident);
 		if (null != tempIdentList) {
 			status = 1;
 			message = "查询列表成功";
@@ -43,13 +43,13 @@ public class IdentController {
 		response.setCharacterEncoding("UTF-8"); //设置字符集为'UTF-8'
 		response.getWriter().print(resultStr);	//接口输出
 	}
-	@RequestMapping(value="/getOneIdent")
+	@RequestMapping(value="/getOneVaildIdent")
 	@ResponseBody
-	public void getOneIdent(Ident ident, HttpServletResponse response) throws IOException{
+	public void getOneVaildIdent(Ident ident, HttpServletResponse response) throws IOException{
 
 		int status;
 		String message=null;
-		Ident tempIdent = identService.getOneIdent(ident);
+		Ident tempIdent = identService.getOneVaildIdent(ident);
 		if (null != tempIdent) {
 			status = 1;
 			message = "查询单个成功";
@@ -85,6 +85,7 @@ public class IdentController {
 		ident.setIdent(new String(request.getParameter("ident").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setEnrolYear(new String(request.getParameter("enrolYear").getBytes("ISO8859-1"), "UTF-8"));
 		ident.setSchoolCode(new String(request.getParameter("schoolCode").getBytes("ISO8859-1"), "UTF-8"));
+		ident.setStatus(new String(request.getParameter("status").getBytes("ISO8859-1"), "UTF-8"));
 		
 		int status = identService.addIdent(ident);
 		String message = null;
@@ -93,7 +94,7 @@ public class IdentController {
 		} else if (0 == status) {
 			message = "绑定失败";
 		} else if (2 == status){
-			message = "该学号已被绑定";
+			message = "该学号已被其他帐号绑定";
 		}
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		resultMap.put("status", status);		//添加成功标记

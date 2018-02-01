@@ -19,6 +19,7 @@ public class Ident extends BaseObject{
 	private String ident;
 	private String enrolYear;
 	private String schoolCode;
+	private String status;
 	
 	public String getSzLogonName() {
 		return szLogonName;
@@ -94,6 +95,12 @@ public class Ident extends BaseObject{
 	public void setSchoolCode(String schoolCode) {
 		this.schoolCode = schoolCode;
 	}
-
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	
 }

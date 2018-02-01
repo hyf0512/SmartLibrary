@@ -2,20 +2,48 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smartlibrary.dao.IdentDao">
-	<!-- 查询所有  -->
+	<!-- 查询所有有效及无效(通过app帐号)  -->
 	<select id="getIdentList" parameterType="Ident" resultType="Ident">
 		select identid as identid,
-			   school_id as school_id,
-			   college_id as college_id,
-			   major_id as major_id,
 			   account as account,
-			   studentid as studentid,
 			   szLogonName as szLogonName,
-			   grade as grade,
-			   state as state
+			   schoolName as schoolName,
+			   studentid as studentid,  
+			   trueName as trueName,
+			   collegeName as collegeName,
+			   majorName as majorName,
+			   sex as sex,
+			   ident as ident,
+			   enrolYear as enrolYear,
+			   schoolCode as schoolCode,
+			   status as status
+			   
 			   from ident
+			   where account = #{account}
 	</select>
-	<!-- 查询单个（通过应用帐号）  -->
+	
+	<!-- 查询单个有效（通过App帐号）  -->
+	<select id="getOneVaildIdent" parameterType="Ident" resultType="Ident">
+		select identid as identid,
+			   account as account,
+			   szLogonName as szLogonName,
+			   schoolName as schoolName,
+			   studentid as studentid,  
+			   trueName as trueName,
+			   collegeName as collegeName,
+			   majorName as majorName,
+			   sex as sex,
+			   ident as ident,
+			   enrolYear as enrolYear,
+			   schoolCode as schoolCode,
+			   status as status
+
+			   from ident
+			   where account = #{account} and status = 1
+			   LIMIT 1
+	</select>
+	
+	<!-- 查询单个有效或无效（通过App帐号）  -->
 	<select id="getOneIdent" parameterType="Ident" resultType="Ident">
 		select identid as identid,
 			   account as account,
@@ -28,13 +56,15 @@
 			   sex as sex,
 			   ident as ident,
 			   enrolYear as enrolYear,
-			   schoolCode as schoolCode
+			   schoolCode as schoolCode,
+			   status as status
 
 			   from ident
-			   where account = #{account}
+			   where account = #{account} and szLogonName = #{szLogonName}
+			   LIMIT 1
 	</select>
 	
-	<!-- 查询是否已绑定学校帐号，避免学校帐号重复  -->
+	<!-- 查询是否已绑定学校帐号，避免学校帐号重复 (同一个学校的不同学号也行) -->
 	<select id="getOneLogonName" parameterType="Ident" resultType="Ident">
 		select identid as identid,
 			   account as account,
@@ -47,7 +77,8 @@
 			   sex as sex,
 			   ident as ident,
 			   enrolYear as enrolYear,
-			   schoolCode as schoolCode
+			   schoolCode as schoolCode,
+			   status as status
 
 			   from ident
 			   where szLogonName = #{szLogonName}
@@ -68,7 +99,8 @@
 				sex,
 				ident,
 				enrolYear,
-				schoolCode
+				schoolCode,
+				status
 			   	)
 			   	values (
 			   	#{account},
@@ -81,7 +113,8 @@
 			   	#{sex},
 			   	#{ident},
 			   	#{enrolYear},
-			   	#{schoolCode}
+			   	#{schoolCode},
+			   	#{status}
 			   	
 			   	)
 	</insert>
@@ -99,8 +132,20 @@
 			sex 		= #{sex},
 			ident 		= #{ident},
 			enrolYear 	= #{enrolYear},
-			schoolCode  = #{schoolCode}		
+			schoolCode  = #{schoolCode},
+			status		= #{status}		
+			
+		where account = #{account} and szLogonName = #{szLogonName}
+	</update>
+	
+	<!-- 修改多个学号为无效 -->
+	<update id="editMultiIdent" parameterType="Ident" useGeneratedKeys="true" keyProperty="identid">
+		update
+		ident
+		set 
+			status		= 0		
 			
 		where account = #{account}
 	</update>
+	
 </mapper>

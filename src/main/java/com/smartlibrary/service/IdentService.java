@@ -14,36 +14,27 @@ public class IdentService {
 
 	@Autowired
 	private IdentDao identDao;
-	public List<Ident> getIdentList(){
-		Ident temp =new Ident();
-		return identDao.getIdentList(temp);
+	public List<Ident> getIdentList(Ident ident){
+		return identDao.getIdentList(ident);
 	}
-	public Ident getOneIdent(Ident ident){
-		return identDao.getOneIdent(ident);
-	}
-	public Ident getOneLogonName(Ident ident){
-		return identDao.getOneLogonName(ident);
+	public Ident getOneVaildIdent(Ident ident){
+		return identDao.getOneVaildIdent(ident);
 	}
 	public int addIdent(Ident ident){
-		if (identDao.getOneIdent(ident) == null) {
-			if (identDao.getOneLogonName(ident) == null) {
-				return identDao.addIdent(ident);
-			} else {
-				return 2;
-			}
+		if (identDao.getOneLogonName(ident) == null) {
+			return identDao.addIdent(ident);
 		} else {
-			if (identDao.getOneLogonName(ident) == null) {
-				return identDao.editIdent(ident);
+			if (identDao.getOneIdent(ident) == null) {
+				return 2;
 			} else {
-				if(identDao.getOneIdent(ident).getSzLogonName().equals(ident.getSzLogonName())) {
-					return identDao.editIdent(ident);
-				} else {
-					return 2;
-				}
+				identDao.editMultiIdent(ident);
+				return identDao.editIdent(ident);
 			}
 		}
 	}
 	public int editIdent(Ident ident){
+		identDao.editMultiIdent(ident);
 		return identDao.editIdent(ident);
 	}
+	
 }
